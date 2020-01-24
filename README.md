@@ -1,0 +1,1 @@
+# shishapp-mobile-react-native
