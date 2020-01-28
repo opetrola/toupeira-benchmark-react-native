@@ -10,6 +10,7 @@ import {
   Easing
 } from 'react-native'
 
+import Spinner from 'react-native-spinkit';
 
 export default SplashScreen = props => {
 
@@ -19,7 +20,7 @@ export default SplashScreen = props => {
 
   Animated.timing(bgAnim, {
     toValue: 1,
-    duration: 400,
+    duration: 500,
     easing: Easing.ease
   }).start()
 
@@ -37,7 +38,7 @@ export default SplashScreen = props => {
     }).start(() => {
       props.navigation.navigate('LoginPage')
     })
-  }, 2500)
+  }, 3000)
 
   return (
     <View
@@ -78,9 +79,11 @@ export default SplashScreen = props => {
           opacity: fadeAnim
         }}>
         <Text style={Styles.splashLogo}>SHISH<Text style={{ color: 'rgba(0, 0, 0, .5)' }}>APP</Text></Text>
-        <ActivityIndicator
-          size='large'
-          color='#ffffff' />
+        <Spinner
+          color='#ffffff'
+          type='ThreeBounce'
+          size={60}
+          style={Styles.spinner} />
       </Animated.View>
     </View >
   )
@@ -97,6 +100,8 @@ const Styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginBottom: 30
+  },
+  spinner: {
+    alignSelf: 'center'
   }
 })
