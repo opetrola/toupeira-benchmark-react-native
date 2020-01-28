@@ -41,7 +41,7 @@ export default class extends React.Component {
 
         <StatusBar
           translucent
-          backgroundColor="rgba(0, 0, 0, .4)"
+          backgroundColor="transparent"
           barStyle="light-content" />
 
         <ImageBackground
@@ -74,7 +74,7 @@ export default class extends React.Component {
             secureTextEntry={true} />
 
           <TouchableOpacity onPress={this.doLogin}>
-            <Text style={Styles.btnEnter}>ENTRAR !</Text>
+            <Text style={Styles.btnEnter}>ENTRAR</Text>
           </TouchableOpacity>
         </View>
 
