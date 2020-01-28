@@ -6,30 +6,42 @@ import {
   Dimensions,
   Text,
   Animated,
-  ActivityIndicator
+  ActivityIndicator,
+  Easing
 } from 'react-native'
 
 
 export default SplashScreen = props => {
 
   const [fadeAnim] = useState(new Animated.Value(0))
+  const [bgAnim] = useState(new Animated.Value(0))
+  const [bgBackAnim] = useState(new Animated.Value(0))
 
-  toLoginPage = () => {
+  Animated.timing(bgAnim, {
+    toValue: 1,
+    duration: 400,
+    easing: Easing.ease
+  }).start()
 
-  }
+  Animated.timing(fadeAnim, {
+    toValue: 1,
+    duration: 1000,
+    easing: Easing.ease
+  }).start()
 
-  React.useEffect(() => {
-    Animated.timing(
-      fadeAnim,
-      {
-        toValue: 1,
-        duration: 100,
-      }
-    ).start()
-  }, [])
+  setTimeout(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 500,
+      easing: Easing.ease
+    }).start(() => {
+      props.navigation.navigate('LoginPage')
+    })
+  }, 2500)
 
   return (
-    <View style={Styles.bgContainer}>
+    <View
+      style={Styles.bgContainer}>
 
       <StatusBar
         translucent
@@ -38,21 +50,45 @@ export default SplashScreen = props => {
       <Animated.View
         style={{
           ...props.style,
-          opacity: fadeAnim,
+          width: 100,
+          height: 100,
+          backgroundColor: '#d66400',
+          position: 'absolute',
+          borderRadius: 100,
+          transform: [
+            {
+              scaleX: bgAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [1, 15]
+              })
+            },
+            {
+              scaleY: bgAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [1, 15]
+              })
+            }
+          ]
+        }}>
+      </Animated.View>
+
+      <Animated.View
+        style={{
+          ...props.style,
+          opacity: fadeAnim
         }}>
         <Text style={Styles.splashLogo}>SHISH<Text style={{ color: 'rgba(0, 0, 0, .5)' }}>APP</Text></Text>
         <ActivityIndicator
           size='large'
-          color='#ffffff'/>
+          color='#ffffff' />
       </Animated.View>
-
     </View >
   )
 }
 
 const Styles = StyleSheet.create({
   bgContainer: {
-    backgroundColor: '#d66400',
+    backgroundColor: '#ffffff',
     height: Dimensions.get('screen').height,
     justifyContent: 'center',
     alignItems: 'center'
@@ -61,6 +97,6 @@ const Styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginBottom:30
+    marginBottom: 30
   }
 })
