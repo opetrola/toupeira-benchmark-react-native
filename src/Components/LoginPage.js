@@ -35,6 +35,10 @@ export default class extends React.Component {
     this.setState({ txtPassword })
   }
 
+  toAbout = () => {
+    this.props.navigation.navigate('About')
+  }
+
   render () {
     return (
       <View style={Styles.bgContainer}>
@@ -103,7 +107,8 @@ export default class extends React.Component {
             style={Styles.logo} />
 
           <View style={Styles.aboutContactContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={this.toAbout}>
               <Text style={{ color: '#7d7d7d' }}>SOBRE&nbsp; </Text>
             </TouchableOpacity>
             <Text>|</Text>
