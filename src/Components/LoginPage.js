@@ -6,7 +6,9 @@ import {
   Dimensions,
   Image,
   Text,
-  ImageBackground
+  ImageBackground,
+  TextInput,
+  TouchableOpacity
 } from 'react-native'
 
 import Logo from '../Assets/Icons/ic_launcher.png'
@@ -14,27 +16,82 @@ import bg from '../Assets/bg/bglogin.jpg'
 
 
 export default class extends React.Component {
+
+  state = {
+    txtUser: '',
+    txtPassword: '',
+  }
+
+  doLogin = () => {
+
+  }
+
+  changeTextUser = txtUser => {
+    this.setState({ txtUser })
+  }
+
+  changeTextPassword = txtPassword => {
+    this.setState({ txtPassword })
+  }
+
   render () {
     return (
       <View style={Styles.bgContainer}>
 
         <StatusBar
-          translucent backgroundColor="transparent"
+          translucent
+          backgroundColor="transparent"
           barStyle="light-content" />
 
         <ImageBackground
           source={bg}
           style={Styles.bg} />
 
-        <Text style={Styles.title}>
-          SHISH<Text style={{color: 'rgba(0, 0, 0, .5)',}}>APP</Text>
-        </Text>
+        <View style={Styles.formContainer}>
+          <Text style={Styles.title}>LOGIN</Text>
+
+          <TextInput
+            style={Styles.txtInput}
+            placeholder="@username"
+            value={this.state.txtUser}
+            onChangeText={this.changeTextUser} />
+
+          <TextInput
+            style={Styles.txtInput}
+            placeholder="password"
+            value={this.state.txtPassword}
+            onChangeText={this.changeTextPassword} />
+
+          <TouchableOpacity onPress={this.doLogin}>
+            <Text style={Styles.btnEnter}>GO !</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={Styles.socialLoginContainer}>
+          <TouchableOpacity onPress={this.doLogin}>
+            <Text style={[Styles.socialBtn, { backgroundColor: '#D34836' }]}>Login com Google</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={this.doLogin}>
+            <Text style={Styles.socialBtn}>Login com Facebook</Text>
+          </TouchableOpacity>
+        </View>
+
+
         <View style={Styles.loginContainer}>
           <Image
             source={Logo}
             style={Styles.logo} />
 
-          <Text style={Styles.versionLabel}>Ainda não tem uma conta? <Text style={{ color: '#d66400', textDecorationLine: 'underline' }}>crie Aqui</Text></Text>
+          <View style={Styles.versionLabel}>
+            <TouchableOpacity>
+              <Text>SOBRE&nbsp;</Text>
+            </TouchableOpacity>
+            <Text>|</Text>
+            <TouchableOpacity>
+              <Text>&nbsp;CONTATO</Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
       </View>
@@ -50,34 +107,89 @@ const Styles = StyleSheet.create({
   loginContainer: {
     backgroundColor: '#ffffff',
     flexDirection: 'column',
-    height: (Dimensions.get('screen').height / 3) * 3,
-    marginTop: (Dimensions.get('screen').height / 10) * .5,
-    borderTopEndRadius: 40,
-    borderTopStartRadius: 40,
+    height: (Dimensions.get('screen').height / 2),
+    marginTop: (Dimensions.get('screen').height / 2),
     alignItems: 'center',
   },
   logo: {
-    width: 100,
-    height: 100,
-    borderRadius: 100,
-    borderWidth: 5,
-    borderColor: '#ffffff',
-    marginTop: -50
+    width: 80,
+    height: 80,
+    marginTop: -40
   },
   versionLabel: {
-    top: (Dimensions.get('window').height / 2) * 1.5,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    top: (Dimensions.get('window').height / 3) + 40,
+    borderTopColor: '#dedede',
+    borderTopWidth: 1,
+    paddingTop: 20,
+    width: (Dimensions.get('window').width / 5) * 4
   },
   title: {
-    fontSize: 25,
+    fontSize: 27,
     color: '#ffffff',
     margin: 30,
-    fontWeight: 'bold',
-    marginTop: 50
+    fontWeight: '100',
   },
   bg: {
     width: Dimensions.get('window').width,
-    height: (Dimensions.get('screen').height / 5) * 1.2,
+    height: (Dimensions.get('screen').height / 2),
     position: 'absolute',
     opacity: .2
+  },
+  formContainer: {
+    position: 'absolute',
+    height: Dimensions.get('window').height / 2,
+    width: Dimensions.get('window').width,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 30
+  },
+  txtInput: {
+    backgroundColor: '#ffffff',
+    width: (Dimensions.get('screen').width / 7) * 4.5,
+    textAlign: 'center',
+    borderRadius: 10,
+    marginBottom: 25,
+    marginTop: -10,
+    height: 40
+  },
+  btnEnter: {
+    margin: 5,
+    color: '#ffffff',
+    borderColor: '#ffffff',
+    borderWidth: 1,
+    padding: 10,
+    width: 120,
+    textAlign: 'center',
+    borderRadius: 10,
+    height: 35,
+    fontWeight: '100',
+    fontSize: 15,
+    paddingTop: 6
+  },
+  socialLoginContainer: {
+    position: 'absolute',
+    width: Dimensions.get('screen').width,
+    height: Dimensions.get('screen').height / 2,
+    top: (Dimensions.get('screen').height / 4) * 2,
+    zIndex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  socialBtn: {
+    backgroundColor: '#8b9dc3',
+    color: '#ffffff',
+    padding: 15,
+    width: (Dimensions.get('screen').width / 6) * 4,
+    margin: 10,
+    justifyContent: 'space-around',
+    borderRadius: 10,
+    elevation: 2,
+    flexDirection: 'row',
+    shadowOpacity: 1,
+    shadowRadius: 1,
+    shadowColor: 'rgba(0,0,0, .4)',
+    shadowOffset: { height: 1, width: 1 },
   }
 })
