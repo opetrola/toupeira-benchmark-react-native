@@ -11,6 +11,7 @@ import {
   TouchableOpacity
 } from 'react-native'
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Logo from '../Assets/Icons/ic_launcher.png'
 import bg from '../Assets/bg/bglogin.jpg'
 
@@ -40,12 +41,21 @@ export default class extends React.Component {
 
         <StatusBar
           translucent
-          backgroundColor="transparent"
+          backgroundColor="rgba(0, 0, 0, .4)"
           barStyle="light-content" />
 
         <ImageBackground
           source={bg}
           style={Styles.bg} />
+
+        <View style={Styles.topBtnGroup}>
+          <TouchableOpacity>
+            <Icon name="share-alt" size={25} color="#fff" />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Icon name="heart" size={25} color="#fff" />
+          </TouchableOpacity>
+        </View>
 
         <View style={Styles.formContainer}>
           <Text style={Styles.title}>LOGIN</Text>
@@ -60,24 +70,29 @@ export default class extends React.Component {
             style={Styles.txtInput}
             placeholder="password"
             value={this.state.txtPassword}
-            onChangeText={this.changeTextPassword} />
+            onChangeText={this.changeTextPassword}
+            secureTextEntry={true} />
 
           <TouchableOpacity onPress={this.doLogin}>
-            <Text style={Styles.btnEnter}>GO !</Text>
+            <Text style={Styles.btnEnter}>ENTRAR !</Text>
           </TouchableOpacity>
         </View>
 
         <View style={Styles.socialLoginContainer}>
           <TouchableOpacity onPress={this.doLogin}>
-            <Text style={[Styles.socialBtn, { backgroundColor: '#D34836' }]}>Login com Google</Text>
+            <Text style={[Styles.socialBtn, { backgroundColor: '#D34836' }]}>
+              <Icon name="google" size={18} color="#fff" /> &nbsp; Login com Google
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={this.doLogin}>
-            <Text style={Styles.socialBtn}>Login com Facebook</Text>
+            <Text style={Styles.socialBtn}>
+              <Icon name="facebook" size={18} color="#fff" /> &nbsp;Login com Facebook
+              </Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={this.doLogin}>
-            <Text style={Styles.btnSignUp}>Ainda não tem uma conta? <Text style={{color: '#d66400'}}>Registre-se</Text></Text>
+            <Text style={Styles.btnSignUp}>Ainda não tem uma conta? <Text style={{ color: '#d66400' }}>Registre-se</Text></Text>
           </TouchableOpacity>
         </View>
 
@@ -87,13 +102,13 @@ export default class extends React.Component {
             source={Logo}
             style={Styles.logo} />
 
-          <View style={Styles.versionLabel}>
+          <View style={Styles.aboutContactContainer}>
             <TouchableOpacity>
-              <Text style={{ color: '#7d7d7d' }}>SOBRE&nbsp;</Text>
+              <Text style={{ color: '#7d7d7d' }}>SOBRE&nbsp; </Text>
             </TouchableOpacity>
             <Text>|</Text>
             <TouchableOpacity>
-              <Text style={{ color: '#7d7d7d' }}>&nbsp;CONTATO</Text>
+              <Text style={{ color: '#7d7d7d' }}> &nbsp;CONTATO</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -120,7 +135,7 @@ const Styles = StyleSheet.create({
     height: 80,
     marginTop: -40
   },
-  versionLabel: {
+  aboutContactContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     top: (Dimensions.get('window').height / 3) + 40,
@@ -176,7 +191,7 @@ const Styles = StyleSheet.create({
     position: 'absolute',
     width: Dimensions.get('screen').width,
     height: Dimensions.get('screen').height / 2,
-    top: (Dimensions.get('screen').height / 4) * 1.9,
+    top: (Dimensions.get('screen').height / 4) * 2,
     zIndex: 1,
     alignItems: 'center',
     justifyContent: 'center'
@@ -184,8 +199,8 @@ const Styles = StyleSheet.create({
   socialBtn: {
     backgroundColor: '#8b9dc3',
     color: '#ffffff',
-    padding: 15,
-    width: (Dimensions.get('screen').width / 6) * 4,
+    padding: 12,
+    width: (Dimensions.get('screen').width / 6) * 3.8,
     margin: 10,
     justifyContent: 'space-around',
     borderRadius: 10,
@@ -195,11 +210,20 @@ const Styles = StyleSheet.create({
     shadowRadius: 1,
     shadowColor: 'rgba(0,0,0, .4)',
     shadowOffset: { height: 1, width: 1 },
+    textAlign: 'center'
   },
   btnSignUp: {
-    margin: 50,
+    margin: 65,
     fontSize: 14,
     fontWeight: '100',
     color: '#7d7d7d'
+  },
+  topBtnGroup: {
+    width: Dimensions.get('screen').width,
+    position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    top: 50,
+    paddingHorizontal: 20
   }
 })
