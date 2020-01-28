@@ -75,6 +75,10 @@ export default class extends React.Component {
           <TouchableOpacity onPress={this.doLogin}>
             <Text style={Styles.socialBtn}>Login com Facebook</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity onPress={this.doLogin}>
+            <Text style={Styles.btnSignUp}>Ainda não tem uma conta? <Text style={{color: '#d66400'}}>Registre-se</Text></Text>
+          </TouchableOpacity>
         </View>
 
 
@@ -85,11 +89,11 @@ export default class extends React.Component {
 
           <View style={Styles.versionLabel}>
             <TouchableOpacity>
-              <Text>SOBRE&nbsp;</Text>
+              <Text style={{ color: '#7d7d7d' }}>SOBRE&nbsp;</Text>
             </TouchableOpacity>
             <Text>|</Text>
             <TouchableOpacity>
-              <Text>&nbsp;CONTATO</Text>
+              <Text style={{ color: '#7d7d7d' }}>&nbsp;CONTATO</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -172,7 +176,7 @@ const Styles = StyleSheet.create({
     position: 'absolute',
     width: Dimensions.get('screen').width,
     height: Dimensions.get('screen').height / 2,
-    top: (Dimensions.get('screen').height / 4) * 2,
+    top: (Dimensions.get('screen').height / 4) * 1.9,
     zIndex: 1,
     alignItems: 'center',
     justifyContent: 'center'
@@ -191,5 +195,11 @@ const Styles = StyleSheet.create({
     shadowRadius: 1,
     shadowColor: 'rgba(0,0,0, .4)',
     shadowOffset: { height: 1, width: 1 },
+  },
+  btnSignUp: {
+    margin: 50,
+    fontSize: 14,
+    fontWeight: '100',
+    color: '#7d7d7d'
   }
 })
