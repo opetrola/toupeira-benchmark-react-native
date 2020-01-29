@@ -6,7 +6,6 @@ import {
   Dimensions,
   Text,
   Animated,
-  ActivityIndicator,
   Easing
 } from 'react-native'
 
@@ -16,12 +15,11 @@ export default SplashScreen = props => {
 
   const [fadeAnim] = useState(new Animated.Value(0))
   const [bgAnim] = useState(new Animated.Value(0))
-  const [bgBackAnim] = useState(new Animated.Value(0))
 
   Animated.timing(bgAnim, {
     toValue: 1,
-    duration: 500,
-    easing: Easing.ease
+    duration: 400,
+    easing: Easing.exp
   }).start()
 
   Animated.timing(fadeAnim, {
@@ -36,7 +34,7 @@ export default SplashScreen = props => {
       duration: 500,
       easing: Easing.ease
     }).start(() => {
-      props.navigation.navigate('LoginPage')
+      props.navigation.navigate('Main')
     })
   }, 3000)
 
@@ -48,6 +46,7 @@ export default SplashScreen = props => {
         translucent
         backgroundColor="transparent"
         barStyle="light-content" />
+
       <Animated.View
         style={{
           ...props.style,
@@ -73,17 +72,21 @@ export default SplashScreen = props => {
         }}>
       </Animated.View>
 
-      <Animated.View
-        style={{
-          ...props.style,
-          opacity: fadeAnim
-        }}>
-        <Text style={Styles.splashLogo}>SHISH<Text style={{ color: 'rgba(0, 0, 0, .5)' }}>APP</Text></Text>
+      <Animated.View style={{
+        ...props.style,
+        opacity: fadeAnim
+      }}>
+
+        <Text style={Styles.splashLogo}>
+          SHISH<Text style={{ color: 'rgba(0, 0, 0, .5)' }}>APP</Text>
+        </Text>
+
         <Spinner
           color='#ffffff'
           type='ThreeBounce'
           size={60}
           style={Styles.spinner} />
+
       </Animated.View>
     </View >
   )
@@ -91,7 +94,7 @@ export default SplashScreen = props => {
 
 const Styles = StyleSheet.create({
   bgContainer: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#f5f5f5',
     height: Dimensions.get('screen').height,
     justifyContent: 'center',
     alignItems: 'center'
@@ -99,7 +102,7 @@ const Styles = StyleSheet.create({
   splashLogo: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#f5f5f5',
   },
   spinner: {
     alignSelf: 'center'
