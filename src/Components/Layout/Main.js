@@ -55,7 +55,7 @@ export default class extends React.Component {
     )
   }
 
-  moveMain () {
+  moveMain() {
     let context = this
 
     Animated.timing(context.opacityMainPage, {
@@ -75,15 +75,15 @@ export default class extends React.Component {
     })
   }
 
-  toAbout = (showAbout) => {
+  toAbout = () => {
     this.moveMain()
     this.setState({ isLogoff: false })
     setInterval(() => {
-      this.setState({ showAbout })
+      this.setState({ showAbout: true })
     }, 700)
   }
 
-  render () {
+  render() {
 
     const stick = this.moveMainPage.interpolate({
       inputRange: [0, 1],
@@ -97,7 +97,7 @@ export default class extends React.Component {
       inputRange: [0, 1],
       outputRange: [
         (Dimensions.get('screen').height / 4) * 2,
-        (Dimensions.get('screen').height / 4) * .5,
+        (Dimensions.get('screen').height / 4) * 1,
       ]
     })
 
@@ -111,7 +111,8 @@ export default class extends React.Component {
 
         <Header
           isLogged={!this.state.isLogoff}
-          doLogout={this.doLogout} />
+          doLogout={this.doLogout}
+          showAbout={this.state.showAbout} />
 
         <Login
           isLogged={!this.state.isLogoff}

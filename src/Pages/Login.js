@@ -11,15 +11,14 @@ export default class extends React.Component {
     this.transition = new Animated.Value(0)
   }
 
-  transitionAnimation () {
-
+  transitionAnimation() {
     Animated.timing(this.transition, {
       toValue: 1,
       duration: 400
     }).start()
   }
 
-  render () {
+  render() {
 
     const opacityIn = this.transition.interpolate({
       inputRange: [0, 1],
@@ -38,7 +37,7 @@ export default class extends React.Component {
 
         <SocialLogin
           doLogin={this.props.doLogin}
-          toAbout={this.props.toAbout}/>
+          toAbout={this.props.toAbout} />
 
       </Animated.View>
     )

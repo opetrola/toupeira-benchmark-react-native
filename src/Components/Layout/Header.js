@@ -10,6 +10,7 @@ import {
   Easing
 } from 'react-native'
 
+import If from '../Auxiliary/if';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import bg from '../../Assets/bg/bglogin.jpg'
 
@@ -21,9 +22,9 @@ export default class extends React.Component {
     this.afterMainPage = new Animated.Value(0)
   }
 
-  moveMain () {
+  moveMain() {
     var context = this
-    Animated.timing(this.opacityMainPage, {
+    Animated.timing(context.opacityMainPage, {
       toValue: 1,
       duration: 300,
       ease: Easing.ease
@@ -35,7 +36,7 @@ export default class extends React.Component {
     })
   }
 
-  render () {
+  render() {
 
     const opacityIn = this.afterMainPage.interpolate({
       inputRange: [0, 1],
@@ -81,15 +82,26 @@ export default class extends React.Component {
         </Animated.View>
 
         <Animated.View style={[Styles.topBtnGroup, { opacity: opacityReverse }]}>
-          <TouchableOpacity
-            onPress={this.props.doLogout}>
-            <Icon name="sign-out" size={25} color="#fff" />
-          </TouchableOpacity>
+          <If test={!this.props.showAbout}>
+            <TouchableOpacity
+              onPress={this.props.doLogout}>
+              <Icon name="sign-out" size={25} color="#fff" />
+            </TouchableOpacity>
 
-          <TouchableOpacity>
-            <Icon name="cog" size={25} color="#fff" />
-          </TouchableOpacity>
+            <TouchableOpacity>
+              <Icon name="cog" size={25} color="#fff" />
+            </TouchableOpacity>
+          </If>
+
+          <If test={this.props.showAbout}>
+            <TouchableOpacity
+              onPress={this.props.doLogout}>
+              <Icon name="arrow-left" size={25} color="#fff" />
+            </TouchableOpacity>
+          </If>
+
         </Animated.View>
+
 
       </View>
     )
