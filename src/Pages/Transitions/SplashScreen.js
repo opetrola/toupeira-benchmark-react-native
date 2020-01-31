@@ -36,7 +36,7 @@ export default SplashScreen = props => {
     }).start(() => {
       props.navigation.navigate('Main')
     })
-  }, 3000)
+  }, 2500)
 
   return (
     <View
@@ -52,7 +52,7 @@ export default SplashScreen = props => {
           ...props.style,
           width: 100,
           height: 100,
-          backgroundColor: '#d66400',
+          backgroundColor: '#795CF0',
           position: 'absolute',
           borderRadius: 100,
           transform: [
@@ -78,7 +78,7 @@ export default SplashScreen = props => {
       }}>
 
         <Text style={Styles.splashLogo}>
-          SHISH<Text style={{ color: 'rgba(0, 0, 0, .5)' }}>APP</Text>
+          TOU<Text style={{ color: 'rgba(0, 0, 0, .5)' }}>PEIRA</Text>
         </Text>
 
         <Spinner

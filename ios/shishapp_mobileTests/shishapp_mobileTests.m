@@ -14,11 +14,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface shishapp_mobileTests : XCTestCase
+@interface toupeira_benchmark_mobileTests : XCTestCase
 
 @end
 
-@implementation shishapp_mobileTests
+@implementation toupeira_benchmark_mobileTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

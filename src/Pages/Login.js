@@ -1,10 +1,10 @@
 import React from 'react'
-import { Animated } from 'react-native'
+import { Animated, Easing } from 'react-native'
 
 import EmailLogin from '../Components/Login/EmailLogin';
 import SocialLogin from '../Components/Login/SocialLogin';
 
-export default class extends React.Component {
+export default class Login extends React.Component {
 
   constructor() {
     super()
@@ -14,7 +14,8 @@ export default class extends React.Component {
   transitionAnimation() {
     Animated.timing(this.transition, {
       toValue: 1,
-      duration: 400
+      duration: 500,
+      easing: Easing.linear
     }).start()
   }
 

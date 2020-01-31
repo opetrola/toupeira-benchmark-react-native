@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "shishapp_mobile.app"
-               BlueprintName = "shishapp_mobile"
-               ReferencedContainer = "container:shishapp_mobile.xcodeproj">
+               BuildableName = "toupeira_benchmark_mobile.app"
+               BlueprintName = "toupeira_benchmark_mobile"
+               ReferencedContainer = "container:toupeira_benchmark_mobile.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "shishapp_mobileTests.xctest"
-               BlueprintName = "shishapp_mobileTests"
-               ReferencedContainer = "container:shishapp_mobile.xcodeproj">
+               BuildableName = "toupeira_benchmark_mobileTests.xctest"
+               BlueprintName = "toupeira_benchmark_mobileTests"
+               ReferencedContainer = "container:toupeira_benchmark_mobile.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "shishapp_mobileTests.xctest"
-               BlueprintName = "shishapp_mobileTests"
-               ReferencedContainer = "container:shishapp_mobile.xcodeproj">
+               BuildableName = "toupeira_benchmark_mobileTests.xctest"
+               BlueprintName = "toupeira_benchmark_mobileTests"
+               ReferencedContainer = "container:toupeira_benchmark_mobile.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "shishapp_mobile.app"
-            BlueprintName = "shishapp_mobile"
-            ReferencedContainer = "container:shishapp_mobile.xcodeproj">
+            BuildableName = "toupeira_benchmark_mobile.app"
+            BlueprintName = "toupeira_benchmark_mobile"
+            ReferencedContainer = "container:toupeira_benchmark_mobile.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "shishapp_mobile.app"
-            BlueprintName = "shishapp_mobile"
-            ReferencedContainer = "container:shishapp_mobile.xcodeproj">
+            BuildableName = "toupeira_benchmark_mobile.app"
+            BlueprintName = "toupeira_benchmark_mobile"
+            ReferencedContainer = "container:toupeira_benchmark_mobile.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "shishapp_mobile.app"
-            BlueprintName = "shishapp_mobile"
-            ReferencedContainer = "container:shishapp_mobile.xcodeproj">
+            BuildableName = "toupeira_benchmark_mobile.app"
+            BlueprintName = "toupeira_benchmark_mobile"
+            ReferencedContainer = "container:toupeira_benchmark_mobile.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

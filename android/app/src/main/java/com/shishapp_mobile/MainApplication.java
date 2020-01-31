@@ -1,4 +1,4 @@
-package com.shishapp_mobile;
+package com.toupeira_benchmark_mobile;
 
 import android.app.Application;
 import android.content.Context;

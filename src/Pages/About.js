@@ -11,7 +11,7 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
-export default class extends React.Component {
+export default class About extends React.Component {
 
   constructor() {
     super()
@@ -29,7 +29,7 @@ export default class extends React.Component {
       .catch(err => console.error('An error occurred', err));
   }
 
-  render() {
+  render () {
 
     const opacityAbout = this.opacityAboutPage.interpolate({
       inputRange: [0, 1],
@@ -39,13 +39,13 @@ export default class extends React.Component {
     return (
       <Animated.View style={[Styles.aboutContainer, { opacity: opacityAbout }]}>
 
-        <Text style={Styles.title}>O que é <Text style={{ color: '#d66400' }}>ShishApp</Text></Text>
+        <Text style={Styles.title}>O que é o<Text style={{ color: '#795CF0' }}> TOUPEIRA</Text></Text>
         <Text style={Styles.subtitle}>Sobre</Text>
 
         <Text style={Styles.textContent}>
-          ShishApp é um aplicativo que reúne elementos de fórum em CHAT, todo voltado ao mundo do Arguile.
-          É destinado à Narguileiros que querem comprar produtos, retirar dúvidas, ou simplesmente conhecer um pessoal
-          e organizar seu próximo rolê.
+          <Text style={{ color: '#795CF0' }}>Toupeira Benchmark</Text> é um aplicativo que reúne elementos de <Text style={{ color: '#795CF0' }}>fórum em CHAT</Text>,
+          todo voltado à benchmark de hardware, software e diversos no mundo da tecnologia. É destinado à todos que querem comprar produtos, retirar dúvidas,
+          ou simplesmente Encontrar aquele pessoal pra jogar.
         </Text>
 
         <View style={Styles.textVersion}>
@@ -92,7 +92,7 @@ const Styles = StyleSheet.create({
     width: (Dimensions.get('screen').width / 6) * 5,
     alignSelf: 'center',
     marginVertical: (Dimensions.get('screen').height / 6) * .7,
-    borderRadius: 20,
+    borderRadius: 8,
     zIndex: 1,
     elevation: 5,
   },

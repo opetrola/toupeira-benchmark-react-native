@@ -1,4 +1,4 @@
-package com.shishapp_mobile;
+package com.toupeira_benchmark_mobile;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "shishapp_mobile";
+    return "toupeira_benchmark_mobile";
   }
 }

@@ -8,7 +8,7 @@ import {
   View
 } from 'react-native'
 
-export default class extends React.Component {
+export default class EmailLogin extends React.Component {
 
   state = {
     txtUser: '',

@@ -9,13 +9,13 @@ import {
 } from 'react-native'
 
 import Logo from '../../Assets/Icons/ic_launcher.png'
-
 import If from '../Auxiliary/if';
 import About from '../../Pages/About';
 import Header from './Header';
 import Login from '../../Pages/Login'
+import Home from '../../Pages/Home'
 
-export default class extends React.Component {
+export default class Main extends React.Component {
 
   constructor() {
     super()
@@ -26,12 +26,14 @@ export default class extends React.Component {
 
   state = {
     isLogoff: true,
-    showAbout: false
+    showAbout: false,
+    showLogin: false
   }
 
   doLogin = () => {
     this.moveMain(1)
     this.setState({ isLogoff: false })
+    this.setState({ showLogin: true })
   }
 
   logoutConfirm = () => {
@@ -55,7 +57,7 @@ export default class extends React.Component {
     )
   }
 
-  moveMain() {
+  moveMain () {
     let context = this
 
     Animated.timing(context.opacityMainPage, {
@@ -83,7 +85,11 @@ export default class extends React.Component {
     }, 700)
   }
 
-  render() {
+  toRouteAnotherPage = (page) => {
+    this.props.navigation.navigate(page)
+  }
+
+  render () {
 
     const stick = this.moveMainPage.interpolate({
       inputRange: [0, 1],
@@ -97,7 +103,7 @@ export default class extends React.Component {
       inputRange: [0, 1],
       outputRange: [
         (Dimensions.get('screen').height / 4) * 2,
-        (Dimensions.get('screen').height / 4) * 1,
+        (Dimensions.get('screen').height / 4) * .8,
       ]
     })
 
@@ -112,13 +118,13 @@ export default class extends React.Component {
         <Header
           isLogged={!this.state.isLogoff}
           doLogout={this.doLogout}
-          showAbout={this.state.showAbout} />
+          showAbout={this.state.showAbout}
+          toRouteAnotherPage={this.toRouteAnotherPage} />
 
         <Login
           isLogged={!this.state.isLogoff}
           doLogin={this.doLogin}
           toAbout={this.toAbout} />
-
 
         <Animated.View style={[Styles.detailContainer, {
           height: stick,
@@ -128,6 +134,12 @@ export default class extends React.Component {
           <Animated.Image
             source={Logo}
             style={[Styles.logo, { opacity: opacityBefore }]} />
+
+          <If test={!this.state.isLogoff && this.state.showLogin}>
+            <View style={Styles.home}>
+              <Home />
+            </View>
+          </If>
 
         </Animated.View>
 
@@ -143,16 +155,21 @@ export default class extends React.Component {
 const Styles = StyleSheet.create({
   bgContainer: {
     flex: 1,
-    backgroundColor: '#d66400',
+    backgroundColor: '#795CF0'
   },
   detailContainer: {
     backgroundColor: '#f5f5f5',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   logo: {
     width: 80,
     height: 80,
     marginTop: -40
+  },
+  home: {
+    height: Dimensions.get('screen').height,
+    width: Dimensions.get('screen').width,
+    marginTop: ((Dimensions.get('screen').height / 4) * 1) * -1,
   }
 })

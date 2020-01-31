@@ -9,7 +9,7 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-export default class extends React.Component {
+export default class SocialLogin extends React.Component {
 
   render () {
 
@@ -31,7 +31,7 @@ export default class extends React.Component {
         <TouchableOpacity>
           <Text style={Styles.btnSignUp}>
             Ainda não tem uma conta? &nbsp;
-            <Text style={{ color: '#d66400' }}>Registre-se</Text>
+            <Text style={{ color: '#795CF0' }}>Registre-se</Text>
           </Text>
         </TouchableOpacity>
 

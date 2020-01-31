@@ -14,7 +14,7 @@ import If from '../Auxiliary/if';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import bg from '../../Assets/bg/bglogin.jpg'
 
-export default class extends React.Component {
+export default class Header extends React.Component {
 
   constructor() {
     super()
@@ -22,7 +22,7 @@ export default class extends React.Component {
     this.afterMainPage = new Animated.Value(0)
   }
 
-  moveMain() {
+  moveMain () {
     var context = this
     Animated.timing(context.opacityMainPage, {
       toValue: 1,
@@ -36,7 +36,7 @@ export default class extends React.Component {
     })
   }
 
-  render() {
+  render () {
 
     const opacityIn = this.afterMainPage.interpolate({
       inputRange: [0, 1],
@@ -73,11 +73,11 @@ export default class extends React.Component {
 
         <Animated.View style={[Styles.topBtnGroup, { opacity: opacityBefore }]}>
           <TouchableOpacity>
-            <Icon name="share-alt" size={25} color="#fff" />
+            <Icon name="share-alt" size={25} color="#ffffff" />
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Icon name="heart" size={25} color="#fff" />
+            <Icon name="heart" size={25} color="#ffffff" />
           </TouchableOpacity>
         </Animated.View>
 
@@ -95,7 +95,7 @@ export default class extends React.Component {
 
           <If test={this.props.showAbout}>
             <TouchableOpacity
-              onPress={this.props.doLogout}>
+              onPress={() => this.props.toRouteAnotherPage('TransitionScreen')}>
               <Icon name="arrow-left" size={25} color="#fff" />
             </TouchableOpacity>
           </If>
