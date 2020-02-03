@@ -20,7 +20,7 @@ export default class Discussion extends React.Component {
 
     setTimeout(() => {
       this.initializeAnimation()
-    }, 600)
+    }, 650)
   }
 
   initializeAnimation = () => {
