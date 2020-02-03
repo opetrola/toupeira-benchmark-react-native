@@ -88,6 +88,10 @@ export default class Header extends React.Component {
               <Icon name="sign-out" size={25} color="#fff" />
             </TouchableOpacity>
 
+            <TouchableOpacity style={{ marginRight: -235 }}>
+              <Icon name="search" size={25} color="#fff" />
+            </TouchableOpacity>
+
             <TouchableOpacity>
               <Icon name="cog" size={25} color="#fff" />
             </TouchableOpacity>

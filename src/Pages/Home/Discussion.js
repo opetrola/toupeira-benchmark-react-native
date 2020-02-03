@@ -1,14 +1,16 @@
 import React from 'react'
 import {
-  View,
   StyleSheet,
   Dimensions,
-  Text,
   Animated,
-  Image
+  ScrollView,
+  Text
 } from 'react-native'
 
 import Logo from '../../Assets/image-samples/pp.jpg';
+import CardDiscussion from './Discussion/CardDiscussion';
+import CardCategory from './Discussion/CardCategory';
+
 
 export default class Discussion extends React.Component {
 
@@ -38,18 +40,62 @@ export default class Discussion extends React.Component {
     return (
       <Animated.View style={[Styles.mainContainer, { opacity: opacityReverse }]}>
 
-        <View style={Styles.cards}>
+        <Text style={Styles.title}>Discussões</Text>
 
-          <Image
-            style={Styles.logoTopic}
-            source={Logo} />
-
-          <View style={Styles.topicContentTitle}>
-            <Text style={Styles.topicTitle}>Titulo do Tópico</Text>
-            <Text style={Styles.topicSubtitle}>Tema do tópico</Text>
-          </View>
-
-        </View>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{flexGrow: 1, alignItems: 'center'}}>
+          <CardCategory />
+          <CardDiscussion
+            photo={Logo}
+            title="Titulo do tópico"
+            subtitle="Tema da tópico"
+            share="155"
+            like="344"
+            contrib="70" />
+          <CardDiscussion
+            photo={Logo}
+            title="Titulo do tópico"
+            subtitle="Tema da tópico"
+            share="155"
+            like="344"
+            contrib="70" />
+          <CardDiscussion
+            photo={Logo}
+            title="Titulo do tópico"
+            subtitle="Tema da tópico"
+            share="155"
+            like="344"
+            contrib="70" />
+          <CardDiscussion
+            photo={Logo}
+            title="Titulo do tópico"
+            subtitle="Tema da tópico"
+            share="155"
+            like="344"
+            contrib="70" />
+          <CardDiscussion
+            photo={Logo}
+            title="Titulo do tópico"
+            subtitle="Tema da tópico"
+            share="155"
+            like="344"
+            contrib="70" />
+          <CardDiscussion
+            photo={Logo}
+            title="Titulo do tópico"
+            subtitle="Tema da tópico"
+            share="155"
+            like="344"
+            contrib="70" />
+          <CardDiscussion
+            photo={Logo}
+            title="Titulo da tua pica"
+            subtitle="Tema da tópico"
+            share="155"
+            like="344"
+            contrib="70" />
+        </ScrollView>
 
       </Animated.View>
     )
@@ -57,47 +103,19 @@ export default class Discussion extends React.Component {
 }
 
 const Styles = StyleSheet.create({
+  title: {
+    color: '#ffffff',
+    fontSize: 25,
+    marginVertical: 27,
+    marginLeft: 60,
+    alignSelf: 'flex-start'
+  },
   mainContainer: {
     width: Dimensions.get('screen').width,
-    height: (Dimensions.get('screen').height / 6) * 5,
-    top: (Dimensions.get('screen').height / 4) * .47,
+    top: (Dimensions.get('screen').height / 4) * .1,
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-  },
-  cards: {
-    elevation: 5,
-    backgroundColor: '#ffffff',
-    width: (Dimensions.get('screen').width / 6) * 5,
-    height: 140,
-    borderRadius: 8,
-    elevation: 2,
-    flexDirection: 'row'
-  },
-  topicTitle: {
-    margin: 20,
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#7d7d7d',
-    marginLeft: -2
-  },
-  topicSubtitle: {
-    fontSize: 15,
-    marginTop: -20,
-    fontWeight: 'bold',
-    color: '#dedede'
-  },
-  logoTopic: {
-    width: 60,
-    height: 60,
-    margin: 10,
-    borderRadius: 100,
-    borderColor: '#dedede',
-    borderWidth: 1.5
-  },
-  topicContentTitle: {
-    flexDirection: 'column',
-    height: 80,
-    marginTop: -5
+    marginBottom: 22,
   }
 })

@@ -8,15 +8,28 @@ import Perfil from './Perfil'
 
 // create our app's navigation stack
 const BottomTabNavigator = createBottomTabNavigator({
-  Discurssion: Discurssion,
-  Benchmarks: Benchmarks,
+  Discurssion: {
+    screen: Discurssion,
+    navigationOptions: {
+      title: 'Discussões'
+    }
+  },
+  Benchmarks: {
+    screen: Benchmarks,
+    navigationOptions: {
+      title: 'Benchmark'
+    }
+  },
   Perfil: Perfil
 }, {
   tabBarOptions: {
     showIcon: false,
     activeTintColor: '#795CF0',
+    tabStyle: {
+      justifyContent: 'center'
+    },
     labelStyle: {
-      fontSize: 13,
+      fontSize: 13
     }
   }
 })

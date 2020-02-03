@@ -65,9 +65,10 @@ export default class Main extends React.Component {
       duration: 300,
       ease: Easing.ease
     }).start(() => {
-      Animated.timing(this.moveMainPage, {
+      Animated.timing(context.moveMainPage, {
         toValue: 1,
-        duration: 400
+        duration: 300,
+        ease: Easing.ease
       }).start(() => {
         Animated.timing(context.afterMainPage, {
           toValue: 1,

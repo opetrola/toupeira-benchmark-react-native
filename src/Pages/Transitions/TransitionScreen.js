@@ -19,10 +19,15 @@ export default SplashScreen = props => {
     duration: 400,
     ease: Easing.exp
   }).start(() => {
-
-    setTimeout(() => {
-      props.navigation.navigate('Main')
-    }, 100)
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 200,
+      easing: Easing.circle
+    }).start(() => {
+      setTimeout(() => {
+        props.navigation.navigate('Main')
+      }, 100)
+    })
   })
 
   return (
