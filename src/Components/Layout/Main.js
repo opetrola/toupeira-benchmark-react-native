@@ -158,7 +158,7 @@ const Styles = StyleSheet.create({
     backgroundColor: '#795CF0'
   },
   detailContainer: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'hsla(0, 0%, 100%, .96)',
     flexDirection: 'column',
     alignItems: 'center'
   },

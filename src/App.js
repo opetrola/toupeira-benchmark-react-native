@@ -1,4 +1,3 @@
-import React from 'react'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 
 // import the different screens
@@ -15,6 +14,4 @@ const RootStack = createSwitchNavigator({
   TransitionScreen
 })
 
-const App = createAppContainer(RootStack);
-
-export default App
+export default createAppContainer(RootStack)

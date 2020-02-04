@@ -11,7 +11,7 @@ export default class Login extends React.Component {
     this.transition = new Animated.Value(0)
   }
 
-  transitionAnimation() {
+  transitionAnimation () {
     Animated.timing(this.transition, {
       toValue: 1,
       duration: 500,
@@ -19,7 +19,7 @@ export default class Login extends React.Component {
     }).start()
   }
 
-  render() {
+  render () {
 
     const opacityIn = this.transition.interpolate({
       inputRange: [0, 1],

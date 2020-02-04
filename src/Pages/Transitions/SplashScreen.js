@@ -94,7 +94,7 @@ export default SplashScreen = props => {
 
 const Styles = StyleSheet.create({
   bgContainer: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'hsla(0,0%,100%,.96)',
     height: Dimensions.get('screen').height,
     justifyContent: 'center',
     alignItems: 'center'
@@ -102,7 +102,7 @@ const Styles = StyleSheet.create({
   splashLogo: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: '#f5f5f5',
+    color: 'hsla(0,0%,100%,.96)',
   },
   spinner: {
     alignSelf: 'center'

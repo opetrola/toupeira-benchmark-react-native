@@ -9,10 +9,10 @@ import {
 
 import Logo from '../../Assets/image-samples/pp.jpg';
 import CardDiscussion from '../../Components/Cards/CardDiscussion';
-import CardCategory from '../../Components/Cards/CardCategory';
+import CardNew from '../../Components/Cards/CardNew';
 
 
-export default class Discussion extends React.Component {
+export default class MyDiscussions extends React.Component {
 
   constructor() {
     super()
@@ -20,7 +20,7 @@ export default class Discussion extends React.Component {
 
     setTimeout(() => {
       this.initializeAnimation()
-    }, 650)
+    }, 300)
   }
 
   initializeAnimation = () => {
@@ -40,9 +40,9 @@ export default class Discussion extends React.Component {
     return (
       <Animated.View style={[Styles.mainContainer, { opacity: opacityReverse }]}>
 
-        <Text style={Styles.title}>Recentes</Text>
+        <Text style={Styles.title}>Meus Tópicos</Text>
 
-        <CardCategory />
+        <CardNew />
 
         <ScrollView
           showsVerticalScrollIndicator={false}
@@ -69,46 +69,11 @@ export default class Discussion extends React.Component {
             photo={Logo}
             title="Titulo do tópico"
             subtitle="Tema da tópico"
-            attached="2 benchs"
-            contrib="70 respostas"
-            category="DEV"
-            date="10/12/2019"
-            eyeCheck="0" />
-          <CardDiscussion
-            photo={Logo}
-            title="Titulo do tópico"
-            subtitle="Tema da tópico"
-            attached="3 benchs"
-            contrib="Sem respostas"
-            category="OT"
-            date="16/01/2020"
-            eyeCheck="0" />
-          <CardDiscussion
-            photo={Logo}
-            title="Titulo do tópico"
-            subtitle="Tema da tópico"
-            attached="6 fotos"
-            contrib="75 respostas"
-            category="CPU"
-            date="10/12/2020" />
-          <CardDiscussion
-            photo={Logo}
-            title="Titulo do tópico"
-            subtitle="Tema da tópico"
             attached="12 links"
             contrib="70 respostas"
             category="SP"
             date="10/12/2020"
             eyeCheck="1" />
-          <CardDiscussion
-            photo={Logo}
-            title="Titulo da tua pica marrom, chupa meu botom"
-            subtitle="Tema da tópico"
-            attached="2 links"
-            contrib="70 respostas"
-            category="VC"
-            date="10/12/2020"
-            eyeCheck="0" />
         </ScrollView>
 
       </Animated.View>

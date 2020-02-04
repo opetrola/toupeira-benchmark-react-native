@@ -7,6 +7,7 @@ import {
   View,
   Linking,
   TouchableOpacity,
+  FlatList
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome5'
@@ -39,7 +40,7 @@ export default class About extends React.Component {
     return (
       <Animated.View style={[Styles.aboutContainer, { opacity: opacityAbout }]}>
 
-        <Text style={Styles.title}>O que é o<Text style={{ color: '#795CF0' }}> TOUPEIRA</Text></Text>
+        <Text style={Styles.title}>O que é o <Text style={{ color: '#795CF0' }}>TOUPEIRA</Text></Text>
         <Text style={Styles.subtitle}>Sobre</Text>
 
         <Text style={Styles.textContent}>
@@ -48,7 +49,26 @@ export default class About extends React.Component {
           ou simplesmente Encontrar aquele pessoal pra jogar.
         </Text>
 
+        <View style={Styles.releaseNotes}>
+
+          <Text style={{ color: '#795CF0', fontSize: 16 }}>Releases:</Text>
+
+          <FlatList
+            data={
+              [
+                { key: '* Primeira release e abertura do open beta para o público da google play.' },
+                { key: '* Abertura do Evento de lançamento' },
+                { key: '* Atualização disponível (TBM0402202001)' }
+              ]
+            }
+
+            renderItem={({ item }) => <Text style={Styles.item}>{item.key}</Text>}
+          />
+
+        </View>
+
         <View style={Styles.textVersion}>
+
           <View style={Styles.iconGroup}>
 
             <TouchableOpacity onPress={() => this.openLink('https://github.com/P37R0L4')}>
@@ -75,8 +95,10 @@ export default class About extends React.Component {
             </TouchableOpacity>
 
           </View>
+
           <Text>Versão: 1.0.0</Text>
           <Text>Developed by @P37R0L4</Text>
+
         </View>
 
       </Animated.View>
@@ -94,7 +116,7 @@ const Styles = StyleSheet.create({
     marginVertical: (Dimensions.get('screen').height / 6) * .7,
     borderRadius: 8,
     zIndex: 1,
-    elevation: 5,
+    elevation: 1,
   },
   title: {
     margin: 20,
@@ -109,8 +131,10 @@ const Styles = StyleSheet.create({
     textAlign: 'left'
   },
   textVersion: {
+    position: 'absolute',
+    alignSelf: 'center',
     alignItems: 'center',
-    top: Dimensions.get('screen').height - 700,
+    top: Dimensions.get('screen').height - 300,
   },
   socialIcons: {
     fontSize: 50,
@@ -125,5 +149,13 @@ const Styles = StyleSheet.create({
     marginHorizontal: 27,
     fontWeight: 'bold',
     color: '#dedede'
+  },
+  item: {
+    padding: 10,
+    fontSize: 15,
+    color: '#7d7d7d'
+  },
+  releaseNotes: {
+    margin: 20
   }
 })

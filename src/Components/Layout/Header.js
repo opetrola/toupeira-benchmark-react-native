@@ -93,7 +93,7 @@ export default class Header extends React.Component {
             </TouchableOpacity>
 
             <TouchableOpacity>
-              <Icon name="cog" size={25} color="#fff" />
+              <Icon name="globe" size={25} color="#fff" />
             </TouchableOpacity>
           </If>
 
