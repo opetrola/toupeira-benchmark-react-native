@@ -13,7 +13,7 @@ export default class CardDiscission extends React.Component {
 
   render () {
     return (
-      <View style={Styles.cards}>
+      <View style={Styles.container}>
 
         <TouchableHighlight
           onPress={this.openNewTopic}
@@ -39,7 +39,7 @@ export default class CardDiscission extends React.Component {
 }
 
 const Styles = StyleSheet.create({
-  cards: {
+  container: {
     width: Dimensions.get('screen').width,
     flexDirection: 'row',
     marginBottom: 25,
@@ -51,11 +51,12 @@ const Styles = StyleSheet.create({
   },
   cardButtom: {
     padding: 3,
-    margin: 3,
+    margin: 5,
     width: (Dimensions.get('screen').width / 2) - 25,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#654bce'
+    backgroundColor: '#654bce',
+    borderRadius: 20
   },
   textButtom: {
     color: '#fff'

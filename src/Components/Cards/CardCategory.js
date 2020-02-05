@@ -10,7 +10,7 @@ import {
 export default class CardDiscission extends React.Component {
   render () {
     return (
-      <View style={Styles.cards}>
+      <View style={Styles.container}>
 
         <Text style={Styles.cardTitle}>Filtro por: </Text>
 
@@ -50,7 +50,7 @@ export default class CardDiscission extends React.Component {
 }
 
 const Styles = StyleSheet.create({
-  cards: {
+  container: {
     width: Dimensions.get('screen').width,
     flexDirection: 'row',
     marginBottom: 20,
@@ -65,12 +65,13 @@ const Styles = StyleSheet.create({
     fontSize: 15
   },
   cardButtom: {
-    padding: 1,
+    padding: 3,
     margin: 3,
-    width: (Dimensions.get('screen').width / 6.5),
+    width: (Dimensions.get('screen').width / 6.7),
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#654bce'
+    backgroundColor: '#654bce',
+    borderRadius: 20
   },
   textButtom: {
     color: '#fff'

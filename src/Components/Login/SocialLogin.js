@@ -18,27 +18,43 @@ export default class SocialLogin extends React.Component {
       <View style={Styles.socialLoginContainer}>
 
         <TouchableOpacity onPress={this.props.doLogin}>
+
           <LinearGradient
             start={{ x: 0.0, y: 1.25 }} end={{ x: 1, y: .25 }}
-            locations={[0, 0.5, 0.9]}
+            locations={[0, .5, .9]}
             colors={['#F4B400', '#DB4437', '#f63c9f']}
             style={[Styles.socialBtn]}>
             <Text style={{ color: '#ffffff' }}>
               <Icon name="google" size={18} color="#fff" /> &nbsp; Login com Google
             </Text>
           </LinearGradient>
+
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.props.doLogin}>
+
           <LinearGradient
             start={{ x: 0.0, y: 1.25 }} end={{ x: 1, y: .25 }}
-            locations={[0, 0.7, 1]}
+            locations={[0, .7, 1]}
             colors={['#50a9c2', '#755bbf', '#628fe3']}
             style={[Styles.socialBtn]}>
             <Text style={{ color: '#ffffff' }}>
               <Icon name="facebook" size={18} color="#fff" /> &nbsp;Login com Facebook
             </Text>
           </LinearGradient>
+
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.props.doLogin}>
+
+          <LinearGradient
+            start={{ x: 1, y: 1 }} end={{ x: 0, y: 0 }}
+            locations={[0, .4, 1]}
+            colors={['#795CF0', '#f63c9f', '#5db5f0']}
+            style={[Styles.socialBtn]}>
+            <Text style={{ color: '#ffffff' }}>Login anônimo</Text>
+          </LinearGradient>
+
         </TouchableOpacity>
 
         <TouchableOpacity>
@@ -57,7 +73,7 @@ export default class SocialLogin extends React.Component {
           <Text>|</Text>
 
           <TouchableOpacity>
-            <Text style={{ color: '#7d7d7d' }}> &nbsp;CONTATO</Text>
+            <Text style={{ color: '#7d7d7d' }}> &nbsp;WEBSITE</Text>
           </TouchableOpacity>
         </View>
 
@@ -80,7 +96,7 @@ const Styles = StyleSheet.create({
     position: 'absolute',
     width: Dimensions.get('screen').width,
     top: (Dimensions.get('screen').height / 4) * 2,
-    height: Dimensions.get('screen').height / 2,
+    height: Dimensions.get('screen').height / 1.85,
     zIndex: 1,
     alignItems: 'center',
     justifyContent: 'center'
@@ -89,10 +105,10 @@ const Styles = StyleSheet.create({
     backgroundColor: '#8b9dc3',
     padding: 12,
     width: (Dimensions.get('screen').width / 6) * 3.8,
-    margin: 10,
+    margin: 7,
     justifyContent: 'space-around',
     borderRadius: 20,
-    elevation: 2,
+    elevation: 1,
     flexDirection: 'row',
     shadowOpacity: 1,
     shadowRadius: 1,
@@ -101,7 +117,8 @@ const Styles = StyleSheet.create({
     textAlign: 'center'
   },
   btnSignUp: {
-    margin: 65,
+    marginTop: 70,
+    marginBottom: 30,
     fontSize: 14,
     fontWeight: '100',
     color: '#7d7d7d'

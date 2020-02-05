@@ -37,7 +37,7 @@ export default SplashScreen = props => {
     }).start(() => {
       props.navigation.navigate('Main')
     })
-  }, 2500)
+  }, 3500)
 
   return (
     <View
@@ -78,13 +78,13 @@ export default SplashScreen = props => {
         opacity: fadeAnim
       }}>
         <LinearGradient
-          start={{ x: 0, y: 1.25 }} end={{ x: 1, y: 0 }}
-          locations={[.2, .6, 1]}
-          colors={['#5db5f0', '#4628bd', '#b85abd']}
+          start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+          locations={[.4, 1]}
+          colors={['#795CF0', '#5db5f0']}
           style={Styles.bgContainer}>
 
           <Text style={Styles.splashLogo}>
-            TOU<Text style={{ color: '#fff', transform: [{rotateX: '90deg'}] }}>PEIRA</Text>
+            TOU<Text style={{ color: '#fff', transform: [{ rotateX: '90deg' }] }}>PEIRA</Text>
           </Text>
 
           <Spinner
@@ -102,7 +102,7 @@ export default SplashScreen = props => {
 
 const Styles = StyleSheet.create({
   bgContainer: {
-    backgroundColor: 'hsla(0,0%,100%,.96)',
+    backgroundColor: '#fff',
     height: Dimensions.get('screen').height,
     width: Dimensions.get('screen').width,
     justifyContent: 'center',
@@ -111,7 +111,7 @@ const Styles = StyleSheet.create({
   splashLogo: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: 'hsla(0,0%,100%,.96)',
+    color: '#fff',
   },
   spinner: {
     alignSelf: 'center'

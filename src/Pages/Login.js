@@ -14,8 +14,7 @@ export default class Login extends React.Component {
   transitionAnimation () {
     Animated.timing(this.transition, {
       toValue: 1,
-      duration: 500,
-      easing: Easing.linear
+      duration: 300
     }).start()
   }
 

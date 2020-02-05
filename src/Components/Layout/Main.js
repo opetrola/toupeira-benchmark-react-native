@@ -59,16 +59,15 @@ export default class Main extends React.Component {
 
   moveMain () {
     let context = this
-
     Animated.timing(context.opacityMainPage, {
       toValue: 1,
-      duration: 300
+      duration: 200
     }).start(() => {
       Animated.timing(context.moveMainPage, {
         toValue: 1,
-        duration: 340,
-        delay: 230,
-        ease: Easing.exp
+        duration: 240,
+        delay: 320,
+        easing: Easing.linear
       }).start()
     })
   }
@@ -110,10 +109,13 @@ export default class Main extends React.Component {
 
     return (
       <View style={Styles.bgContainer}>
+
         <LinearGradient
-          start={{ x: 0, y: 1.25 }} end={{ x: 1, y: 0 }}
-          locations={[.2, .8, 1]}
-          colors={this.state.isLogoff ? ['#5db5f0', '#b85abd', '#ff42a7'] : ['#fff', '#fff', '#fff']}>
+          start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }}
+          locations={[.3, 1]}
+          style={Styles.bgContainerGradient}
+          colors={this.state.isLogoff ? ['#795CF0', '#5db5f0'] : ['#fff', '#fff']}>
+
           <Header
             isLogged={!this.state.isLogoff}
             doLogout={this.doLogout}
@@ -158,10 +160,15 @@ const Styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#795CF0'
   },
+  bgContainerGradient: {
+    height: (Dimensions.get('screen').height / 2) + 60
+  },
   detailContainer: {
-    backgroundColor: 'hsla(0,0%,100%,.96)',
+    backgroundColor: '#fff',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderTopStartRadius: 40,
+    borderTopEndRadius: 40
   },
   logo: {
     width: 80,

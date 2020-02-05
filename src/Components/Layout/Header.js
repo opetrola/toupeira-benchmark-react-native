@@ -25,11 +25,11 @@ export default class Header extends React.Component {
     var context = this
     Animated.timing(context.opacityMainPage, {
       toValue: 1,
-      duration: 300,
+      duration: 200,
     }).start(() => {
       Animated.timing(context.afterMainPage, {
         toValue: 1,
-        duration: 300
+        duration: 200
       }).start()
     })
   }
@@ -117,7 +117,7 @@ const Styles = StyleSheet.create({
   },
   bg: {
     width: Dimensions.get('window').width,
-    height: (Dimensions.get('screen').height / 2),
+    height: (Dimensions.get('screen').height / 2) + 40,
     position: 'absolute',
     opacity: .2
   },

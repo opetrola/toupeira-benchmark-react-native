@@ -89,7 +89,7 @@ export default class CardDiscission extends React.Component {
 
 const Styles = StyleSheet.create({
   cards: {
-    backgroundColor: 'hsla(0,0%,100%,.96)',
+    backgroundColor: '#fff',
     width: (Dimensions.get('screen').width / 6) * 5.7,
     height: 130,
     flexDirection: 'row',
@@ -107,13 +107,14 @@ const Styles = StyleSheet.create({
     minWidth: (Dimensions.get('screen').width / 6) * 5.7
   },
   topicSubtitle: {
-    fontSize: 12,
+    fontSize: 13,
     marginTop: -19,
-    fontWeight: 'bold',
+    fontWeight: '900',
     color: '#fff',
-    width: 115,
+    width: 120,
     textAlign: 'center',
-    padding: 1.2
+    padding: 2,
+    borderRadius: 20
   },
   logoTopic: {
     width: 50,

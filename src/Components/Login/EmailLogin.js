@@ -71,7 +71,7 @@ const Styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     width: (Dimensions.get('screen').width / 7) * 4.5,
     textAlign: 'center',
-    borderRadius: 10,
+    borderRadius: 20,
     marginBottom: 25,
     marginTop: -10,
     height: 40
@@ -84,7 +84,7 @@ const Styles = StyleSheet.create({
     padding: 10,
     width: 120,
     textAlign: 'center',
-    borderRadius: 10,
+    borderRadius: 20,
     height: 35,
     fontWeight: '100',
     fontSize: 15,

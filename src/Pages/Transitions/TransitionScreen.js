@@ -16,18 +16,15 @@ export default SplashScreen = props => {
 
   Animated.timing(bgAnim, {
     toValue: 1,
-    duration: 400,
-    ease: Easing.exp
+    duration: 400
   }).start(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 200,
-      easing: Easing.circle
-    }).start(() => {
-      setTimeout(() => {
-        props.navigation.navigate('Main')
-      }, 100)
-    })
+      duration: 200
+    }).start()
+    setTimeout(() => {
+      props.navigation.navigate('Main')
+    }, 190)
   })
 
   return (
@@ -74,7 +71,7 @@ export default SplashScreen = props => {
 
 const Styles = StyleSheet.create({
   bgContainer: {
-    backgroundColor: 'hsla(0,0%,100%,.96)',
+    backgroundColor: '#fff',
     height: Dimensions.get('screen').height,
     justifyContent: 'center',
     alignItems: 'center'
@@ -82,7 +79,7 @@ const Styles = StyleSheet.create({
   splashLogo: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: 'hsla(0,0%,100%,.96)',
+    color: '#fff',
   },
   spinner: {
     alignSelf: 'center'
