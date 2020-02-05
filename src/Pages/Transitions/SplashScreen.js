@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
   View,
   StyleSheet,
@@ -9,7 +9,8 @@ import {
   Easing
 } from 'react-native'
 
-import Spinner from 'react-native-spinkit';
+import Spinner from 'react-native-spinkit'
+import LinearGradient from 'react-native-linear-gradient'
 
 export default SplashScreen = props => {
 
@@ -18,13 +19,13 @@ export default SplashScreen = props => {
 
   Animated.timing(bgAnim, {
     toValue: 1,
-    duration: 400,
+    duration: 250,
     easing: Easing.exp
   }).start()
 
   Animated.timing(fadeAnim, {
     toValue: 1,
-    duration: 1000,
+    duration: 650,
     easing: Easing.ease
   }).start()
 
@@ -76,16 +77,23 @@ export default SplashScreen = props => {
         ...props.style,
         opacity: fadeAnim
       }}>
+        <LinearGradient
+          start={{ x: 0, y: 1.25 }} end={{ x: 1, y: 0 }}
+          locations={[.2, .6, 1]}
+          colors={['#5db5f0', '#4628bd', '#b85abd']}
+          style={Styles.bgContainer}>
 
-        <Text style={Styles.splashLogo}>
-          TOU<Text style={{ color: 'rgba(0, 0, 0, .5)' }}>PEIRA</Text>
-        </Text>
+          <Text style={Styles.splashLogo}>
+            TOU<Text style={{ color: '#fff', transform: [{rotateX: '90deg'}] }}>PEIRA</Text>
+          </Text>
 
-        <Spinner
-          color='#ffffff'
-          type='ThreeBounce'
-          size={60}
-          style={Styles.spinner} />
+          <Spinner
+            color='#ffffff'
+            type='ThreeBounce'
+            size={60}
+            style={Styles.spinner} />
+        </LinearGradient>
+
 
       </Animated.View>
     </View >
@@ -96,6 +104,7 @@ const Styles = StyleSheet.create({
   bgContainer: {
     backgroundColor: 'hsla(0,0%,100%,.96)',
     height: Dimensions.get('screen').height,
+    width: Dimensions.get('screen').width,
     justifyContent: 'center',
     alignItems: 'center'
   },

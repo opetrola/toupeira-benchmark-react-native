@@ -8,6 +8,7 @@ import {
   Alert
 } from 'react-native'
 
+import LinearGradient from 'react-native-linear-gradient'
 import Logo from '../../Assets/Icons/ic_launcher.png'
 import If from '../Auxiliary/if';
 import About from '../../Pages/About';
@@ -108,41 +109,44 @@ export default class Main extends React.Component {
     })
 
     return (
-      <View style={[Styles.bgContainer, {
-        backgroundColor: !this.state.isLogoff ? 'hsla(0,0%,100%,.96)' : '#795CF0'
-      }]}>
+      <View style={Styles.bgContainer}>
+        <LinearGradient
+          start={{ x: 0, y: 1.25 }} end={{ x: 1, y: 0 }}
+          locations={[.2, .8, 1]}
+          colors={this.state.isLogoff ? ['#5db5f0', '#b85abd', '#ff42a7'] : ['#fff', '#fff', '#fff']}>
+          <Header
+            isLogged={!this.state.isLogoff}
+            doLogout={this.doLogout}
+            showAbout={this.state.showAbout}
+            toRouteAnotherPage={this.toRouteAnotherPage} />
 
-        <Header
-          isLogged={!this.state.isLogoff}
-          doLogout={this.doLogout}
-          showAbout={this.state.showAbout}
-          toRouteAnotherPage={this.toRouteAnotherPage} />
+          <Login
+            isLogged={!this.state.isLogoff}
+            doLogin={this.doLogin}
+            toAbout={this.toAbout} />
 
-        <Login
-          isLogged={!this.state.isLogoff}
-          doLogin={this.doLogin}
-          toAbout={this.toAbout} />
+          <Animated.View style={[Styles.detailContainer, {
+            height: stick,
+            top: slideUp
+          }]}>
 
-        <Animated.View style={[Styles.detailContainer, {
-          height: stick,
-          top: slideUp
-        }]}>
+            <Animated.Image
+              source={Logo}
+              style={[Styles.logo, { opacity: opacityBefore }]} />
 
-          <Animated.Image
-            source={Logo}
-            style={[Styles.logo, { opacity: opacityBefore }]} />
+            <If test={!this.state.isLogoff && this.state.showLogin}>
+              <View style={Styles.home}>
+                <Home />
+              </View>
+            </If>
 
-          <If test={!this.state.isLogoff && this.state.showLogin}>
-            <View style={Styles.home}>
-              <Home />
-            </View>
+          </Animated.View>
+
+          <If test={this.state.showAbout}>
+            <About />
           </If>
 
-        </Animated.View>
-
-        <If test={this.state.showAbout}>
-          <About />
-        </If>
+        </LinearGradient>
 
       </View>
     )

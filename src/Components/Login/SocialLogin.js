@@ -8,6 +8,7 @@ import {
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
+import LinearGradient from 'react-native-linear-gradient'
 
 export default class SocialLogin extends React.Component {
 
@@ -17,15 +18,27 @@ export default class SocialLogin extends React.Component {
       <View style={Styles.socialLoginContainer}>
 
         <TouchableOpacity onPress={this.props.doLogin}>
-          <Text style={[Styles.socialBtn, { backgroundColor: '#D34836' }]}>
-            <Icon name="google" size={18} color="#fff" /> &nbsp; Login com Google
-          </Text>
+          <LinearGradient
+            start={{ x: 0.0, y: 1.25 }} end={{ x: 1, y: .25 }}
+            locations={[0, 0.5, 0.9]}
+            colors={['#F4B400', '#DB4437', '#f63c9f']}
+            style={[Styles.socialBtn]}>
+            <Text style={{ color: '#ffffff' }}>
+              <Icon name="google" size={18} color="#fff" /> &nbsp; Login com Google
+            </Text>
+          </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.props.doLogin}>
-          <Text style={Styles.socialBtn}>
-            <Icon name="facebook" size={18} color="#fff" /> &nbsp;Login com Facebook
+          <LinearGradient
+            start={{ x: 0.0, y: 1.25 }} end={{ x: 1, y: .25 }}
+            locations={[0, 0.7, 1]}
+            colors={['#50a9c2', '#755bbf', '#628fe3']}
+            style={[Styles.socialBtn]}>
+            <Text style={{ color: '#ffffff' }}>
+              <Icon name="facebook" size={18} color="#fff" /> &nbsp;Login com Facebook
             </Text>
+          </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity>
@@ -74,12 +87,11 @@ const Styles = StyleSheet.create({
   },
   socialBtn: {
     backgroundColor: '#8b9dc3',
-    color: '#ffffff',
     padding: 12,
     width: (Dimensions.get('screen').width / 6) * 3.8,
     margin: 10,
     justifyContent: 'space-around',
-    borderRadius: 10,
+    borderRadius: 20,
     elevation: 2,
     flexDirection: 'row',
     shadowOpacity: 1,
