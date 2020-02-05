@@ -116,7 +116,6 @@ const Styles = StyleSheet.create({
     marginVertical: (Dimensions.get('screen').height / 6) * .7,
     borderRadius: 8,
     zIndex: 1,
-    elevation: 1,
   },
   title: {
     margin: 20,

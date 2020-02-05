@@ -6,8 +6,7 @@ import {
   Dimensions,
   ImageBackground,
   TouchableOpacity,
-  Animated,
-  Easing
+  Animated
 } from 'react-native'
 
 import If from '../Auxiliary/if';
@@ -27,11 +26,10 @@ export default class Header extends React.Component {
     Animated.timing(context.opacityMainPage, {
       toValue: 1,
       duration: 300,
-      ease: Easing.ease
     }).start(() => {
       Animated.timing(context.afterMainPage, {
         toValue: 1,
-        duration: 400
+        duration: 300
       }).start()
     })
   }
@@ -63,7 +61,8 @@ export default class Header extends React.Component {
         <StatusBar
           translucent
           backgroundColor="transparent"
-          barStyle="light-content" />
+          animated
+          barStyle={!this.props.isLogged ? 'light-content' : 'dark-content'} />
 
         <Animated.View style={{ opacity: opacityIn }}>
           <ImageBackground
@@ -81,26 +80,25 @@ export default class Header extends React.Component {
           </TouchableOpacity>
         </Animated.View>
 
-        <Animated.View style={[Styles.topBtnGroup, { opacity: opacityReverse }]}>
+        <Animated.View style={[Styles.topBtnGroup, {
+          opacity: opacityReverse,
+          justifyContent: !this.props.showAbout ? 'flex-end' : 'space-between'
+        }]}>
           <If test={!this.props.showAbout}>
+            <TouchableOpacity style={{ marginRight: 20 }}>
+              <Icon name="search" size={25} color={this.props.isLogged ? '#795CF0' : '#fff'} />
+            </TouchableOpacity>
+
             <TouchableOpacity
               onPress={this.props.doLogout}>
-              <Icon name="sign-out" size={25} color="#fff" />
-            </TouchableOpacity>
-
-            <TouchableOpacity style={{ marginRight: -235 }}>
-              <Icon name="search" size={25} color="#fff" />
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Icon name="globe" size={25} color="#fff" />
+              <Icon name="sign-out" size={25} color={this.props.isLogged ? '#795CF0' : '#fff'} />
             </TouchableOpacity>
           </If>
 
           <If test={this.props.showAbout}>
             <TouchableOpacity
               onPress={() => this.props.toRouteAnotherPage('TransitionScreen')}>
-              <Icon name="arrow-left" size={25} color="#fff" />
+              <Icon name="arrow-left" size={25} color={this.props.isLogged ? '#795CF0' : '#fff'} />
             </TouchableOpacity>
           </If>
 
@@ -130,6 +128,6 @@ const Styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     top: 50,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
   }
 })

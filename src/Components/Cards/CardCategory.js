@@ -12,7 +12,7 @@ export default class CardDiscission extends React.Component {
     return (
       <View style={Styles.cards}>
 
-        <Text style={Styles.cardTitle}>Filtrado por: </Text>
+        <Text style={Styles.cardTitle}>Filtro por: </Text>
 
         <TouchableHighlight
           style={Styles.cardButtom}>
@@ -61,14 +61,13 @@ const Styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   cardTitle: {
-    color: '#ffffff',
+    color: '#7d7d7d',
     fontSize: 15
   },
   cardButtom: {
     padding: 1,
     margin: 3,
     width: (Dimensions.get('screen').width / 6.5),
-    borderRadius: 3,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#654bce'

@@ -118,11 +118,13 @@ export default class Discussion extends React.Component {
 
 const Styles = StyleSheet.create({
   title: {
-    color: '#ffffff',
-    fontSize: 25,
-    marginVertical: 27,
-    marginLeft: 60,
-    alignSelf: 'flex-start'
+    color: '#000',
+    fontSize: 30,
+    marginBottom: 34,
+    marginLeft: 20,
+    fontWeight: 'bold',
+    alignSelf: 'flex-start',
+    marginTop: 20
   },
   mainContainer: {
     top: (Dimensions.get('screen').height / 4) * .1,

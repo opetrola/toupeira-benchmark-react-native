@@ -21,7 +21,6 @@ export default class Main extends React.Component {
     super()
     this.moveMainPage = new Animated.Value(0)
     this.opacityMainPage = new Animated.Value(0)
-    this.afterMainPage = new Animated.Value(0)
   }
 
   state = {
@@ -31,7 +30,7 @@ export default class Main extends React.Component {
   }
 
   doLogin = () => {
-    this.moveMain(1)
+    this.moveMain()
     this.setState({ isLogoff: false })
     this.setState({ showLogin: true })
   }
@@ -66,14 +65,10 @@ export default class Main extends React.Component {
     }).start(() => {
       Animated.timing(context.moveMainPage, {
         toValue: 1,
-        duration: 300,
-        ease: Easing.linear
-      }).start(() => {
-        Animated.timing(context.afterMainPage, {
-          toValue: 1,
-          duration: 400
-        }).start()
-      })
+        duration: 340,
+        delay: 230,
+        ease: Easing.exp
+      }).start()
     })
   }
 
@@ -82,7 +77,7 @@ export default class Main extends React.Component {
     this.setState({ isLogoff: false })
     setInterval(() => {
       this.setState({ showAbout: true })
-    }, 700)
+    }, 500)
   }
 
   toRouteAnotherPage = (page) => {
@@ -113,7 +108,9 @@ export default class Main extends React.Component {
     })
 
     return (
-      <View style={Styles.bgContainer}>
+      <View style={[Styles.bgContainer, {
+        backgroundColor: !this.state.isLogoff ? 'hsla(0,0%,100%,.96)' : '#795CF0'
+      }]}>
 
         <Header
           isLogged={!this.state.isLogoff}
@@ -158,7 +155,7 @@ const Styles = StyleSheet.create({
     backgroundColor: '#795CF0'
   },
   detailContainer: {
-    backgroundColor: 'hsla(0, 0%, 100%, .96)',
+    backgroundColor: 'hsla(0,0%,100%,.96)',
     flexDirection: 'column',
     alignItems: 'center'
   },

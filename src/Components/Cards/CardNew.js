@@ -50,10 +50,9 @@ const Styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   cardButtom: {
-    padding: 1.5,
+    padding: 3,
     margin: 3,
-    width: (Dimensions.get('screen').width / 3) + 17,
-    borderRadius: 3,
+    width: (Dimensions.get('screen').width / 2) - 25,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#654bce'

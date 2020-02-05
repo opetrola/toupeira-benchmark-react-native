@@ -16,29 +16,12 @@ export default class MyDiscussions extends React.Component {
 
   constructor() {
     super()
-    this.opacitytTransition = new Animated.Value(0)
-
-    setTimeout(() => {
-      this.initializeAnimation()
-    }, 300)
-  }
-
-  initializeAnimation = () => {
-    Animated.timing(this.opacitytTransition, {
-      toValue: 1,
-      duration: 300
-    }).start()
   }
 
   render () {
 
-    const opacityReverse = this.opacitytTransition.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, 1]
-    })
-
     return (
-      <Animated.View style={[Styles.mainContainer, { opacity: opacityReverse }]}>
+      <Animated.View style={[Styles.mainContainer]}>
 
         <Text style={Styles.title}>Meus Tópicos</Text>
 
@@ -83,11 +66,13 @@ export default class MyDiscussions extends React.Component {
 
 const Styles = StyleSheet.create({
   title: {
-    color: '#ffffff',
-    fontSize: 25,
-    marginVertical: 27,
-    marginLeft: 60,
-    alignSelf: 'flex-start'
+    color: '#000',
+    fontSize: 30,
+    marginBottom: 34,
+    marginLeft: 20,
+    fontWeight: 'bold',
+    alignSelf: 'flex-start',
+    marginTop: 20
   },
   mainContainer: {
     top: (Dimensions.get('screen').height / 4) * .1,
