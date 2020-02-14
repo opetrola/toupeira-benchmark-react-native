@@ -1,1 +1,0 @@
-# toupeira_benchmark-mobile-react-native

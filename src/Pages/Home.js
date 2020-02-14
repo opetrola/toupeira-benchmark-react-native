@@ -1,10 +1,8 @@
-import { createSwitchNavigator, createAppContainer } from 'react-navigation'
-import BottomTabNavigator from './Home/BottomTabNavigator'
+import React from 'react'
+import { View } from 'react-native'
 
-const HomeContainer = createAppContainer(
-  createSwitchNavigator({
-    Main: BottomTabNavigator
-  })
-)
-
-export default HomeContainer
+export default Home = () => {
+    return (
+        <View></View>
+    )
+}

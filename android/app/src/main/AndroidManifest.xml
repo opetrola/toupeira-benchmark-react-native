@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.toupeira_benchmark_mobile">
+  package="com.toupeiraforummobile">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
