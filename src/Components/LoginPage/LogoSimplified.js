@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         borderColor: "#fff",
         borderWidth: 15,
         marginHorizontal: 5,
-        borderRadius: 8
+        borderRadius: 30
     },
 
     textLogo: {
