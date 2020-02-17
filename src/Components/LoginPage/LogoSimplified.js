@@ -9,12 +9,20 @@ export default LogoSimplified = () => {
 
         <View style={styles.containerLogo}>
 
-            <Image style={styles.imageLogo} source={ic_launcher} />
+            <Image
+                style={styles.imageLogo}
+                source={ic_launcher} />
 
             <View style={styles.containerTextLogo}>
 
                 <Text style={styles.textLogo}>TOU</Text>
-                <Text style={[styles.textLogo, { color: 'rgba(0, 0, 0, .5)' }]}>PEIRA</Text>
+                <Text style={[
+                    styles.textLogo, {
+                        color: 'rgba(0, 0, 0, .5)'
+                    }
+                ]}>
+                    PEIRA
+                </Text>
 
             </View>
 

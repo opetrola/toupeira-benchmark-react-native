@@ -17,7 +17,10 @@ export default LoginDetail = () => {
             <ImageBackground
                 source={bgImageLogin}
                 style={[styles.container, styles.bgImage]}
-                imageStyle={{ borderBottomLeftRadius: 7, borderBottomRightRadius: 7 }} />
+                imageStyle={{
+                    borderBottomLeftRadius: 7,
+                    borderBottomRightRadius: 7
+                }} />
 
             <LogoSimplified />
 

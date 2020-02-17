@@ -4,16 +4,20 @@ import { View, StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-nati
 import GoogleLogin from '../Buttons/GoogleLogin'
 import EmailLogin from '../Buttons/EmailLogin'
 
-export default LoginActions = () => {
+export default LoginActions = props => {
 
     return (
         <View style={styles.container}>
 
             <GoogleLogin />
-            <EmailLogin />
+            <EmailLogin navigation={props.navigation} />
 
             <TouchableOpacity>
-                <Text style={styles.TermsLink}>Termos de uso e política de privacidade.</Text>
+
+                <Text style={styles.TermsLink}>
+                    Termos de uso e privacidade
+                </Text>
+
             </TouchableOpacity>
 
         </View>
@@ -31,7 +35,8 @@ const styles = StyleSheet.create({
 
     TermsLink: {
         color: '#795CF0',
-        marginVertical: 30
+        marginVertical: 40,
+        alignSelf: 'center'
     }
 
 })

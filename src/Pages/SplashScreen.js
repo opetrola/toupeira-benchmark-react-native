@@ -9,7 +9,7 @@ export default SplashScreen = props => {
 
     setTimeout(() => {
         props.navigation.navigate('LoginPage')
-    }, 2000)
+    }, 3000)
 
     return (
         <LinearGradient

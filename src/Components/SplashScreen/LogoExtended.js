@@ -1,7 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, Image, View } from 'react-native'
-
-import ic_launcher from '../../Assets/Icon/mipmap-xxxhdpi/ic_launcher.png'
+import { StyleSheet, Text, View } from 'react-native'
 
 export default LogoExtended = () => {
 
@@ -9,12 +7,11 @@ export default LogoExtended = () => {
 
         <View style={styles.containerLogo}>
 
-            <Image style={styles.imageLogo} source={ic_launcher} />
-
             <View style={styles.containerTextLogo}>
 
-                <Text style={styles.textLogo}>TOU</Text>
-                <Text style={[styles.textLogo, { color: 'rgba(0, 0, 0, .5)' }]}>PEIRA</Text>
+                <Text style={styles.textLogo}>TOU
+                    <Text style={{ color: 'rgba(0, 0, 0, .5)' }}>PEIRA</Text>
+                </Text>
 
             </View>
 
@@ -42,12 +39,7 @@ const styles = StyleSheet.create({
     },
 
     containerLogo: {
-        flexDirection: 'row',
         alignItems: 'center'
-    },
-
-    containerTextLogo: {
-        flexDirection: 'column'
     }
 
 })

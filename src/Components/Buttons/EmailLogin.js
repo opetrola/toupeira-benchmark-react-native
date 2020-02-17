@@ -1,11 +1,18 @@
 import React from 'react'
 import { TouchableOpacity, Text, Dimensions, StyleSheet } from 'react-native'
 
-export default LoginActions = () => {
+export default EmailLogin = props => {
+
+    const toEmailLoginPage = () => {
+        props.navigation.navigate('EmailLoginPage')
+    }
+
     return (
         <TouchableOpacity>
 
-            <Text style={[styles.loginButton]}>
+            <Text
+                onPress={() => toEmailLoginPage()}
+                style={[styles.loginButton]}>
                 Login com email
             </Text>
 
@@ -16,8 +23,8 @@ export default LoginActions = () => {
 const styles = StyleSheet.create({
 
     loginButton: {
-        width: (Dimensions.get('screen').width / 6) * 4,
-        padding: 15,
+        width: ((Dimensions.get('screen').width / 6) * 5) + 20,
+        padding: 20,
         borderRadius: 30,
         color: '#795CF0',
         borderWidth: 1,

@@ -4,7 +4,7 @@ import { TouchableOpacity, Text, Dimensions, StyleSheet } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-export default LoginActions = () => {
+export default GoogleLogin = () => {
     return (
         <TouchableOpacity>
 
@@ -16,7 +16,12 @@ export default LoginActions = () => {
                 style={styles.googleButton}>
 
                 <Text style={styles.textButton}>
-                    <Icon name="google" size={18} color="#fff" /> &nbsp;Login com Google
+
+                    <Icon
+                        name="google"
+                        size={18}
+                        color="#fff" /> &nbsp;Login com Google
+
                 </Text>
 
             </LinearGradient>
@@ -28,8 +33,8 @@ export default LoginActions = () => {
 const styles = StyleSheet.create({
 
     googleButton: {
-        width: (Dimensions.get('screen').width / 6) * 4,
-        padding: 15,
+        width: ((Dimensions.get('screen').width / 6) * 5) + 20,
+        padding: 20,
         borderRadius: 30,
         marginBottom: 10
     },
