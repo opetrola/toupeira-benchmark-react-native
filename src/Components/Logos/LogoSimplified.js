@@ -3,33 +3,28 @@ import { StyleSheet, Text, Image, View } from 'react-native'
 
 import ic_launcher from '../../Assets/Icon/mipmap-xxxhdpi/ic_launcher.png'
 
-export default LogoSimplified = () => {
+const LogoSimplified = () => (
+    <View style={styles.containerLogo}>
 
-    return (
+        <Image
+            style={styles.imageLogo}
+            source={ic_launcher} />
 
-        <View style={styles.containerLogo}>
+        <View style={styles.containerTextLogo}>
 
-            <Image
-                style={styles.imageLogo}
-                source={ic_launcher} />
-
-            <View style={styles.containerTextLogo}>
-
-                <Text style={styles.textLogo}>TOU</Text>
-                <Text style={[
-                    styles.textLogo, {
-                        color: 'rgba(0, 0, 0, .5)'
-                    }
-                ]}>
-                    PEIRA
+            <Text style={styles.textLogo}>TOU</Text>
+            <Text style={[
+                styles.textLogo, {
+                    color: 'rgba(0, 0, 0, .5)'
+                }
+            ]}>
+                PEIRA
                 </Text>
 
-            </View>
-
         </View>
-    )
 
-}
+    </View>
+)
 
 const styles = StyleSheet.create({
 
@@ -61,3 +56,5 @@ const styles = StyleSheet.create({
     }
 
 })
+
+export default LogoSimplified

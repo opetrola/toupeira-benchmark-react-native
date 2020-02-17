@@ -3,17 +3,20 @@ import { createAppContainer } from 'react-navigation'
 import createAnimatedSwitchNavigator from 'react-navigation-animated-switch'
 import { Transition } from 'react-native-reanimated'
 
-import LoginPage from './Pages/LoginPage'
-import SplashScreen from './Pages/SplashScreen'
-import EmailLoginPage from './Pages/EmailLoginPage'
-import Home from './Pages/Home'
+import LoginPage from '../../Pages/LoginPage'
+import SplashScreen from '../../Pages/SplashScreen'
+import EmailLoginPage from '../../Pages/EmailLoginPage'
+import Home from '../../Pages/Home'
 
 const mainNavigation = createAnimatedSwitchNavigator({
+
   Main: SplashScreen,
   LoginPage,
   Home,
   EmailLoginPage
+
 }, {
+
   transition: (
     <Transition.Together>
 
@@ -27,7 +30,8 @@ const mainNavigation = createAnimatedSwitchNavigator({
         durationMs={500} />
 
     </Transition.Together>
-  ),
+  )
+
 })
 
 export default createAppContainer(mainNavigation)

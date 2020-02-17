@@ -2,14 +2,18 @@ import React from 'react'
 import { StatusBar, StyleSheet } from 'react-native'
 
 import LinearGradient from 'react-native-linear-gradient'
-import LogoExtended from '../Components/SplashScreen/LogoExtended'
+import LogoExtended from '../Components/Logos/LogoExtended'
+import firebase from '../Services/Firebase'
 
 
-export default SplashScreen = props => {
+const SplashScreen = props => {
 
     setTimeout(() => {
-        props.navigation.navigate('LoginPage')
-    }, 3000)
+        firebase.auth().onAuthStateChanged(user => {
+            // props.navigation.navigate('LoginPage')
+            props.navigation.navigate(user ? 'Home' : 'LoginPage')
+        })
+    }, 2000)
 
     return (
         <LinearGradient
@@ -40,3 +44,5 @@ const styles = StyleSheet.create({
     }
 
 })
+
+export default SplashScreen

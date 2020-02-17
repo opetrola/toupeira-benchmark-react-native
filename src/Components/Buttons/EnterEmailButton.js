@@ -2,10 +2,19 @@ import React from 'react'
 import { TouchableOpacity, Text, Dimensions, StyleSheet } from 'react-native'
 
 import LinearGradient from 'react-native-linear-gradient'
+import { connect } from 'react-redux'
 
-export default DefaultButton = props => {
+
+const DefaultButton = ({ loginState }) => {
+
+    const emailRule = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
     return (
-        <TouchableOpacity>
+        <TouchableOpacity
+            disabled={!emailRule.test(loginState.email)}
+            style={{
+                opacity: !emailRule.test(loginState.email) ? .3 : 1
+            }}>
 
             <LinearGradient
                 start={{ x: 0.0, y: 1.25 }}
@@ -13,7 +22,7 @@ export default DefaultButton = props => {
                 colors={['#795CF0', '#5db5f0']}
                 style={styles.defaultButton}>
 
-                <Text style={styles.textButton}>&nbsp;{props.text}</Text>
+                <Text style={styles.textButton}>&nbsp;{'entrar'}</Text>
 
             </LinearGradient>
 
@@ -37,3 +46,5 @@ const styles = StyleSheet.create({
         fontSize: 20
     }
 })
+
+export default connect(state => ({ loginState: state }))(DefaultButton)

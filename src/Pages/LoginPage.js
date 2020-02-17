@@ -1,22 +1,22 @@
 import React from 'react'
 import { View, StatusBar } from 'react-native'
 
-import LoginDetail from '../Components/LoginPage/LoginDetail'
-import LoginActions from '../Components/LoginPage/LoginActions'
+import LoginDetailContainer from '../Components/Containers/LoginDetailContainer'
+import LoginActionsContainer from '../Components/Containers/LoginActionsContainer'
 
-export default LoginPage = props => {
-    return (
-        <View>
+const LoginPage = props => (
+    <View>
 
-            <StatusBar
-                translucent
-                backgroundColor="transparent"
-                barStyle="light-content" />
+        <StatusBar
+            translucent
+            backgroundColor="transparent"
+            barStyle="light-content" />
 
-            <LoginDetail />
+        <LoginDetailContainer />
 
-            <LoginActions navigation={props.navigation} />
+        <LoginActionsContainer navigation={props.navigation} />
 
-        </View>
-    )
-}
+    </View>
+)
+
+export default LoginPage

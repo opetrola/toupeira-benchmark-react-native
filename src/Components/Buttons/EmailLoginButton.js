@@ -1,7 +1,8 @@
 import React from 'react'
 import { TouchableOpacity, Text, Dimensions, StyleSheet } from 'react-native'
 
-export default EmailLogin = props => {
+
+const EmailLogin = props => {
 
     const toEmailLoginPage = () => {
         props.navigation.navigate('EmailLoginPage')
@@ -18,6 +19,7 @@ export default EmailLogin = props => {
 
         </TouchableOpacity>
     )
+
 }
 
 const styles = StyleSheet.create({
@@ -32,3 +34,5 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     }
 })
+
+export default EmailLogin

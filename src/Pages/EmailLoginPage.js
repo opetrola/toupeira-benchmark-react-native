@@ -1,69 +1,57 @@
 import React from 'react'
-import {
-    View,
-    StyleSheet,
-    StatusBar,
-    TouchableOpacity,
-    Text,
-    Dimensions,
-    TextInput
-} from 'react-native'
+import { View, StyleSheet, StatusBar, TouchableOpacity, Text, Dimensions } from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
-import DefaultButton from '../Components/Buttons/DefaultButton';
+import EnterEmailButton from '../Components/Buttons/EnterEmailButton'
+import EmailLoginForm from '../Components/Forms/EmailLoginForm'
 
-export default class EmailLoginPage extends React.Component {
+import firebase from '../Services/Firebase'
 
-    state = {
-        email: ''
+const EmailLoginPage = props => {
+
+    const goBack = () => {
+        props.navigation.navigate('LoginPage')
     }
 
-    onChangeEmail = email => {
-        this.setState({ email })
+    const handleSignUp = () => {
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then(() => this.props.navigation.navigate('Main'))
+            .catch(error => this.setState({ errorMessage: error.message }))
     }
 
-    goBack = () => {
-        this.props.navigation.navigate('LoginPage')
-    }
+    return (
+        <View style={styles.container} >
 
-    render() {
-        return (
-            <View style={styles.container} >
+            <StatusBar
+                translucent
+                backgroundColor="transparent"
+                barStyle="dark-content" />
 
-                <StatusBar
-                    translucent
-                    backgroundColor="transparent"
-                    barStyle="dark-content" />
+            <View style={styles.header}>
 
-                <View style={styles.header}>
+                <TouchableOpacity onPress={goBack}>
 
-                    <TouchableOpacity onPress={this.goBack}>
+                    <Icon
+                        name="angle-left"
+                        size={35}
+                        color="#795CF0" />
 
-                        <Icon
-                            name="angle-left"
-                            size={35}
-                            color="#795CF0" />
+                </TouchableOpacity>
 
-                    </TouchableOpacity>
-
-                    <Text style={styles.title}>entrar</Text>
-
-                </View>
-
-                <View style={styles.formContainer}>
-                    <Text style={styles.EmailTitleInput}>digite seu email</Text>
-                    <TextInput
-                        style={styles.txtEmail}
-                        placeholder="Email ou Login"
-                        onChangeText={text => this.onChangeEmail(text)}
-                        value={this.state.email} />
-                </View>
-
-                <DefaultButton text={'entrar'} />
+                <Text style={styles.title}>entrar</Text>
 
             </View>
-        )
-    }
+
+            <EmailLoginForm />
+
+            <EnterEmailButton
+                text={'entrar'}
+                handleSignUp={handleSignUp} />
+
+        </View>
+    )
 
 }
 
@@ -88,24 +76,8 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         right: (Dimensions.get('screen').width / 2) - 60
-    },
-
-    txtEmail: {
-        height: 50,
-        marginHorizontal: 30,
-        marginTop: 15,
-        fontSize: 27
-    },
-
-    EmailTitleInput: {
-        fontSize: 16,
-        color: 'rgba(10, 10, 10, 1)',
-        marginHorizontal: 30,
-    },
-
-    formContainer: {
-        position: 'absolute',
-        top: Dimensions.get('screen').height / 7
     }
 
 })
+
+export default EmailLoginPage
