@@ -1,10 +1,4 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import { createAppContainer } from 'react-navigation'
+import HomeBottomTabNavigation from '../Components/Navigations/HomeBottomTabNavigation'
 
-const Home = () => (
-    <View>
-        <Text>Home</Text>
-    </View>
-)
-
-export default Home
+export default createAppContainer(HomeBottomTabNavigation)

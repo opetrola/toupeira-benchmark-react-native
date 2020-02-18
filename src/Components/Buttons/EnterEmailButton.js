@@ -1,20 +1,83 @@
 import React from 'react'
-import { TouchableOpacity, Text, Dimensions, StyleSheet } from 'react-native'
+import { TouchableOpacity, Text, Dimensions, StyleSheet, Platform, ToastAndroid, Alert } from 'react-native'
 
 import LinearGradient from 'react-native-linear-gradient'
+import firebase from '../../Services/Firebase'
 import { connect } from 'react-redux'
-
 
 const DefaultButton = ({ loginState }) => {
 
-    const emailRule = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    const alertError = (msg) => {
+        if (Platform.OS === 'android') {
+            ToastAndroid.show(msg, ToastAndroid.LONG)
+        } else if (Platform.OS === 'ios') {
+            Alert.Alert(
+                'O login falhou',
+                msg,
+                [
+                    {
+                        text: 'fechar',
+                        style: 'cancel'
+                    }
+                ]
+            )
+        }
+
+    }
+
+    const signUp = (email, password) => {
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then(() => this.props.navigation.navigate('Home'))
+            .catch(error => {
+                if (error.code === 'auth/user-not-found') {
+                    alertNotAccountYet(email, password)
+                } else {
+                    alertError(error.message)
+                }
+            })
+    }
+
+    const createAccount = (email, password) => {
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(() => this.props.navigation.navigate('Home'))
+            .catch(error => { console.log(error.message) })
+    }
+
+    const alertNotAccountYet = (email, password) => {
+        Alert.alert(
+            'Conta não existente',
+            'Deseja criar uma nova conta',
+            [
+                {
+                    text: 'fechar',
+                    style: 'cancel'
+                },
+                {
+                    text: 'Criar',
+                    onPress: () => {
+                        createAccount(email, password)
+                    }
+                }
+            ]
+        )
+
+    }
+
+    const handleSignUp = (email, password) => {
+        signUp(email, password)
+    }
 
     return (
         <TouchableOpacity
-            disabled={!emailRule.test(loginState.email)}
+            disabled={loginState.password.length <= 0}
+            onPress={() => handleSignUp(loginState.email, loginState.password)}
             style={{
-                opacity: !emailRule.test(loginState.email) ? .3 : 1
-            }}>
+                opacity: loginState.password.length <= 0 ? .3 : 1
+            }} >
 
             <LinearGradient
                 start={{ x: 0.0, y: 1.25 }}

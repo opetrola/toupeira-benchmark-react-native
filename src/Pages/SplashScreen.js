@@ -10,7 +10,6 @@ const SplashScreen = props => {
 
     setTimeout(() => {
         firebase.auth().onAuthStateChanged(user => {
-            // props.navigation.navigate('LoginPage')
             props.navigation.navigate(user ? 'Home' : 'LoginPage')
         })
     }, 2000)

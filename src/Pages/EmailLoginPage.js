@@ -4,21 +4,14 @@ import { View, StyleSheet, StatusBar, TouchableOpacity, Text, Dimensions } from 
 import Icon from 'react-native-vector-icons/FontAwesome'
 import EnterEmailButton from '../Components/Buttons/EnterEmailButton'
 import EmailLoginForm from '../Components/Forms/EmailLoginForm'
+import PasswordLoginForm from '../Components/Forms/PasswordLoginForm'
 
-import firebase from '../Services/Firebase'
+import { connect } from 'react-redux'
 
-const EmailLoginPage = props => {
+const EmailLoginPage = ({ loginState }) => {
 
     const goBack = () => {
         props.navigation.navigate('LoginPage')
-    }
-
-    const handleSignUp = () => {
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then(() => this.props.navigation.navigate('Main'))
-            .catch(error => this.setState({ errorMessage: error.message }))
     }
 
     return (
@@ -46,9 +39,9 @@ const EmailLoginPage = props => {
 
             <EmailLoginForm />
 
-            <EnterEmailButton
-                text={'entrar'}
-                handleSignUp={handleSignUp} />
+            <PasswordLoginForm />
+
+            <EnterEmailButton text={'entrar'} />
 
         </View>
     )
@@ -80,4 +73,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default EmailLoginPage
+export default connect(state => ({ loginState: state }))(EmailLoginPage)
