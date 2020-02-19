@@ -70,7 +70,8 @@ const DiscussionsPage = ({ loginState, dispatch }) => {
 
             <CardPerfilInformation
                 posts='357'
-                folowers="5500" />
+                folowers="5500"
+                contribs="999+" />
 
             <Text style={styles.title}>Discussões</Text>
 
@@ -203,6 +204,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#795CF0'
     },
 
+    container: {
+        width: Dimensions.get('screen').width,
+        height: Dimensions.get('screen').height / 3.5,
+        position: 'absolute',
+        opacity: .7
+    },
+
     title: {
         fontSize: 25,
         top: Dimensions.get('screen').height / 3.5 + 80,
@@ -214,14 +222,8 @@ const styles = StyleSheet.create({
     containerScroll: {
         height: (Dimensions.get('screen').height / 3) * 2,
         top: (Dimensions.get('screen').height / 3.5) + 95
-    },
-
-    container: {
-        width: Dimensions.get('screen').width,
-        height: Dimensions.get('screen').height / 3.5,
-        position: 'absolute',
-        opacity: .7
     }
+
 
 })
 

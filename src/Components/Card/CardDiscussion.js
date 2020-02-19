@@ -88,14 +88,16 @@ export default class CardDiscission extends React.Component {
 }
 
 const Styles = StyleSheet.create({
+
     cards: {
         width: (Dimensions.get('screen').width / 6) * 5.7,
         height: 130,
         flexDirection: 'row',
         marginVertical: 5,
         borderBottomColor: '#dedede',
-        borderBottomWidth: 1,
+        borderBottomWidth: 1
     },
+
     topicTitle: {
         margin: 20,
         fontSize: 18,
@@ -105,6 +107,7 @@ const Styles = StyleSheet.create({
         maxWidth: (Dimensions.get('screen').width / 6) * 5.7,
         minWidth: (Dimensions.get('screen').width / 6) * 5.7
     },
+
     topicSubtitle: {
         fontSize: 13,
         marginTop: -19,
@@ -115,6 +118,7 @@ const Styles = StyleSheet.create({
         padding: 2,
         borderRadius: 20
     },
+
     logoTopic: {
         width: 50,
         height: 50,
@@ -123,11 +127,13 @@ const Styles = StyleSheet.create({
         borderColor: '#dedede',
         borderWidth: 1.5
     },
+
     topicContentTitle: {
         flexDirection: 'column',
         height: 80,
         marginTop: -5
     },
+
     shareContainer: {
         flexDirection: 'row',
         marginTop: 78,
@@ -136,6 +142,7 @@ const Styles = StyleSheet.create({
         maxWidth: (Dimensions.get('screen').width / 6) * 5.3,
         minWidth: (Dimensions.get('screen').width / 6) * 5.3
     },
+
     shareItens: {
         fontSize: 20,
         fontWeight: 'bold',
@@ -143,10 +150,12 @@ const Styles = StyleSheet.create({
         marginHorizontal: 17,
         alignSelf: 'flex-start'
     },
+
     shareSubtitle: {
         color: '#000',
         fontSize: 15
     },
+
     eyeCheck: {
         position: 'absolute',
         right: 20,
