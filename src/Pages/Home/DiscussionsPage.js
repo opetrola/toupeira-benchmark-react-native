@@ -2,8 +2,9 @@ import React, { useEffect } from 'react'
 import { View, Text, StatusBar, StyleSheet, Dimensions, ScrollView, Platform, TouchableOpacity } from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
-import Iconicons from 'react-native-vector-icons/Ionicons'
+import LinearGradient from 'react-native-linear-gradient'
 import CardDiscussion from '../../Components/Card/CardDiscussion'
+import CardPerfilInformation from '../../Components/Card/CardPerfilInformation'
 
 import photoTestUrl from '../../Assets/Images/Samples/sample_1.jpg'
 
@@ -42,33 +43,56 @@ const DiscussionsPage = ({ loginState, dispatch }) => {
 
             <View style={styles.toolbar}>
 
-                <Text style={styles.title}>Minhas Discussões</Text>
+                <LinearGradient
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: .8, y: 1 }}
+                    colors={['#34b6ff', '#df5aff']}
+                    locations={[0, 1]}
+                    style={styles.container}>
 
-                <View style={styles.toolbarActions}>
+                </LinearGradient>
 
-                    <TouchableOpacity>
-                        <Icon
-                            name="search"
-                            size={25}
-                            color="#fff" />
-                    </TouchableOpacity>
+                <TouchableOpacity>
+                    <Icon
+                        name="long-arrow-left"
+                        size={25}
+                        color="#fff" />
+                </TouchableOpacity>
 
-                    <TouchableOpacity>
-                        <Icon
-                            name="plus-circle"
-                            size={25}
-                            color="#fff" />
-                    </TouchableOpacity>
+                <TouchableOpacity>
+                    <Icon
+                        name="plus-circle"
+                        size={25}
+                        color="#fff" />
+                </TouchableOpacity>
 
-                </View>
             </View>
 
+            <CardPerfilInformation
+                posts='357'
+                folowers="5500" />
+
+            <Text style={styles.title}>Discussões</Text>
 
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 style={styles.containerScroll}
-                contentContainerStyle={{ flexGrow: 1, alignItems: 'center', paddingBottom: 40 }}>
+                contentContainerStyle={{
+                    flexGrow: 1,
+                    alignItems: 'center',
+                    paddingBottom: 150
+                }}>
 
+
+                <CardDiscussion
+                    photo={photoTestUrl}
+                    title="Comprei um smarthphone no ali express e veio uma pedra, o que eu faço?"
+                    subtitle="Tema da tópico"
+                    attached="5 anexos"
+                    contrib="Sem respostas"
+                    category="SP"
+                    date="04/02/2020"
+                    eyeCheck="1" />
                 <CardDiscussion
                     photo={photoTestUrl}
                     title="Comprei um smarthphone no ali express e veio uma pedra, o que eu faço?"
@@ -169,33 +193,34 @@ const styles = StyleSheet.create({
 
     toolbar: {
         width: Dimensions.get("screen").width,
-        height: Dimensions.get('screen').height / 4,
+        height: Dimensions.get('screen').height / 3.5,
         position: 'absolute',
         flexDirection: 'row',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
         paddingHorizontal: 25,
-        paddingTop: 20,
+        paddingTop: 50,
         backgroundColor: '#795CF0'
     },
 
     title: {
         fontSize: 25,
-        marginTop: 25,
-        fontWeight: 'bold',
-        color: '#fff'
+        top: Dimensions.get('screen').height / 3.5 + 80,
+        fontWeight: '900',
+        marginHorizontal: 20,
+        color: '#9c9c9c'
     },
 
     containerScroll: {
-        height: Dimensions.get('screen').height - 151,
-        top: 102
+        height: (Dimensions.get('screen').height / 3) * 2,
+        top: (Dimensions.get('screen').height / 3.5) + 95
     },
 
-    toolbarActions: {
-        marginTop: 25,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        width: (Dimensions.get('screen').width / 6)
+    container: {
+        width: Dimensions.get('screen').width,
+        height: Dimensions.get('screen').height / 3.5,
+        position: 'absolute',
+        opacity: .7
     }
 
 })

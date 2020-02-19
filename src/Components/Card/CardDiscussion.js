@@ -92,9 +92,9 @@ const Styles = StyleSheet.create({
         width: (Dimensions.get('screen').width / 6) * 5.7,
         height: 130,
         flexDirection: 'row',
-        backgroundColor: '#fff',
-        marginVertical: 9,
-        elevation: 8
+        marginVertical: 5,
+        borderBottomColor: '#dedede',
+        borderBottomWidth: 1,
     },
     topicTitle: {
         margin: 20,
