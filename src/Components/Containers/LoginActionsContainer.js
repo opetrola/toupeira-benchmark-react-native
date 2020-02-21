@@ -1,13 +1,13 @@
 import React from 'react'
 import { View, StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-native'
 
-import GoogleLoginButton from '../Buttons/GoogleLoginButton'
+import AnonymousLoginButton from '../Buttons/AnonymousLoginButton'
 import EmailLoginButton from '../Buttons/EmailLoginButton'
 
 const LoginActionsContainer = props => (
     <View style={styles.container}>
 
-        <GoogleLoginButton />
+        <AnonymousLoginButton />
         <EmailLoginButton navigation={props.navigation} />
 
         <TouchableOpacity>

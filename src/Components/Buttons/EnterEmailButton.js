@@ -64,7 +64,6 @@ const DefaultButton = ({ loginState }) => {
                 }
             ]
         )
-
     }
 
     const handleSignUp = (email, password) => {

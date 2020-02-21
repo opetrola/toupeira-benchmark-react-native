@@ -3,8 +3,7 @@ import {
     View,
     Text,
     StyleSheet,
-    Dimensions,
-    Image
+    Dimensions
 } from 'react-native'
 
 export default class CardDiscission extends React.Component {
@@ -49,17 +48,27 @@ export default class CardDiscission extends React.Component {
         return (
             <View style={Styles.cards}>
 
-                <View style={Styles.infos}>
+                <View style={[Styles.infos, {
+                    borderColor: '#dedede',
+                    borderRightWidth: 1,
+                    paddingRight: 10,
+                }]}>
                     <Text style={Styles.valueCard}>{this.props.posts}</Text>
                     <Text style={Styles.titleCard}>Discussões</Text>
                 </View>
 
-                <View style={Styles.infos}>
+                <View style={[Styles.infos, {
+                    borderColor: '#dedede',
+                    borderRightWidth: 1,
+                    paddingRight: 15,
+                }]}>
                     <Text style={Styles.valueCard}>{this.props.folowers}</Text>
                     <Text style={Styles.titleCard}>Seguidores</Text>
                 </View>
 
-                <View style={Styles.infos}>
+                <View style={[Styles.infos, {
+                    paddingRight: 5
+                }]}>
                     <Text style={Styles.valueCard}>{this.props.contribs}</Text>
                     <Text style={Styles.titleCard}>Contribuições</Text>
                 </View>
@@ -81,7 +90,8 @@ const Styles = StyleSheet.create({
         position: "absolute",
         top: (Dimensions.get('screen').height / 3.5) - 60,
         alignItems: 'center',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        paddingLeft: 5
     },
 
     infos: {

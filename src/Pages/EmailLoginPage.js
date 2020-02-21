@@ -6,9 +6,7 @@ import EnterEmailButton from '../Components/Buttons/EnterEmailButton'
 import EmailLoginForm from '../Components/Forms/EmailLoginForm'
 import PasswordLoginForm from '../Components/Forms/PasswordLoginForm'
 
-import { connect } from 'react-redux'
-
-const EmailLoginPage = ({ loginState }) => {
+const EmailLoginPage = props => {
 
     const goBack = () => {
         props.navigation.navigate('LoginPage')
@@ -73,4 +71,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default connect(state => ({ loginState: state }))(EmailLoginPage)
+export default EmailLoginPage

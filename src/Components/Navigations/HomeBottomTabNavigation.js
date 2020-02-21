@@ -6,6 +6,7 @@ import IconFa5 from 'react-native-vector-icons/FontAwesome5'
 import DiscussionsPage from '../../Pages/Home/DiscussionsPage'
 import Benchmark from '../../Pages/Home/Benchmark'
 import RoomsPage from '../../Pages/Home/RoomsPage'
+import RecentlyPage from '../../Pages/Home/RecentlyPage'
 
 const TabNavigation = createBottomTabNavigator({
 
@@ -26,6 +27,14 @@ const TabNavigation = createBottomTabNavigator({
     screen: RoomsPage,
     navigationOptions: {
       title: 'Salas',
+      tabBarOptions: {
+        showLabel: false,
+        activeTintColor: '#2b974d',
+        style: {
+          backgroundColor: 'transparent',
+          borderTopColor: 'transparent'
+        },
+      },
       tabBarIcon: ({ tintColor }) => (
         <IconFa5
           name="door-open"
@@ -41,11 +50,36 @@ const TabNavigation = createBottomTabNavigator({
     navigationOptions: {
       tabBarOptions: {
         showLabel: false,
-        activeTintColor: '#f66'
+        activeTintColor: '#f66',
+        style: {
+          backgroundColor: 'transparent',
+          borderTopColor: 'transparent'
+        }
       },
       tabBarIcon: ({ tintColor }) => (
         <IconFa5
           name="fire-alt"
+          size={25}
+          color={tintColor} />
+      )
+    }
+  },
+
+  RecentlyPage: {
+    screen: RecentlyPage,
+    title: 'Recentes',
+    navigationOptions: {
+      tabBarOptions: {
+        showLabel: false,
+        activeTintColor: '#f0a800',
+        style: {
+          backgroundColor: 'transparent',
+          borderTopColor: 'transparent'
+        }
+      },
+      tabBarIcon: ({ tintColor }) => (
+        <IconFa5
+          name="newspaper"
           size={25}
           color={tintColor} />
       )
@@ -56,7 +90,11 @@ const TabNavigation = createBottomTabNavigator({
   {
     tabBarOptions: {
       showLabel: false,
-      activeTintColor: '#795CF0'
+      activeTintColor: '#795CF0',
+      style: {
+        backgroundColor: 'transparent',
+        borderTopColor: 'transparent'
+      }
     }
   })
 

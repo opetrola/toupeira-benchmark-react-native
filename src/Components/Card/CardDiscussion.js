@@ -51,14 +51,14 @@ export default class CardDiscission extends React.Component {
         return (
             <View style={Styles.cards}>
 
-                <Image
-                    style={Styles.logoTopic}
-                    source={this.props.photo} />
-
                 <View style={Styles.topicContentTitle}>
                     <Text style={Styles.topicTitle}>{this.props.title.substring(0, 20)}{this.props.title.length >= 20 ? '..' : ''}</Text>
                     <Text style={[Styles.topicSubtitle, { backgroundColor: this.changColorTopic(this.props.category) }]}>{this.changeCategorytitle(this.props.category)}</Text>
                 </View>
+
+                <Image
+                    style={[Styles.logoTopic, { borderColor: this.changColorTopic(this.props.category) }]}
+                    source={this.props.photo} />
 
                 <View style={Styles.shareContainer}>
 
@@ -79,7 +79,7 @@ export default class CardDiscission extends React.Component {
                 </View>
 
                 <Text style={Styles.eyeCheck}>
-                    <Icon name="eye" size={25} color={this.props.eyeCheck === '1' ? '#795CF0' : '#dedede'} />
+                    <Icon name="eye" size={30} color={this.props.eyeCheck === '1' ? '#795CF0' : '#dedede'} />
                 </Text>
 
             </View>
@@ -90,12 +90,18 @@ export default class CardDiscission extends React.Component {
 const Styles = StyleSheet.create({
 
     cards: {
-        width: (Dimensions.get('screen').width / 6) * 5.7,
-        height: 130,
-        flexDirection: 'row',
-        marginVertical: 5,
-        borderBottomColor: '#dedede',
-        borderBottomWidth: 1
+        width: (Dimensions.get('screen').width / 4) * 2.5,
+        height: 300,
+        flexDirection: 'column',
+        marginHorizontal: 25,
+        backgroundColor: '#fff',
+        elevation: 13,
+        borderTopStartRadius: 80,
+        borderTopEndRadius: 20,
+        borderBottomEndRadius: 100,
+        borderBottomStartRadius: 25,
+        transform: [{ rotate: '-5deg' }],
+        padding: 30
     },
 
     topicTitle: {
@@ -105,7 +111,7 @@ const Styles = StyleSheet.create({
         color: '#7d7d7d',
         marginLeft: -2,
         maxWidth: (Dimensions.get('screen').width / 6) * 5.7,
-        minWidth: (Dimensions.get('screen').width / 6) * 5.7
+        minWidth: (Dimensions.get('screen').width / 6) * 5.7,
     },
 
     topicSubtitle: {
@@ -120,12 +126,18 @@ const Styles = StyleSheet.create({
     },
 
     logoTopic: {
-        width: 50,
-        height: 50,
+        width: ((Dimensions.get('screen').width / 4) * 3.5) / 2,
+        height: ((Dimensions.get('screen').width / 4) * 3.5) / 2,
         margin: 13,
-        borderRadius: 100,
-        borderColor: '#dedede',
-        borderWidth: 1.5
+        alignSelf: 'flex-end',
+        marginRight: (((Dimensions.get('screen').width / 4) * 3) / 4) * -0.7,
+        marginTop: -120,
+        zIndex: -1,
+        opacity: .1,
+        borderTopRightRadius: 1300,
+        borderTopLeftRadius: 1300,
+        borderBottomLeftRadius: 685,
+        borderBottomRightRadius: 1300
     },
 
     topicContentTitle: {
@@ -135,12 +147,10 @@ const Styles = StyleSheet.create({
     },
 
     shareContainer: {
-        flexDirection: 'row',
-        marginTop: 78,
-        justifyContent: 'space-between',
-        marginLeft: ((Dimensions.get('screen').width / 6) * 7.16) * -1,
-        maxWidth: (Dimensions.get('screen').width / 6) * 5.3,
-        minWidth: (Dimensions.get('screen').width / 6) * 5.3
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-start',
+        marginTop: -25
     },
 
     shareItens: {
@@ -153,12 +163,14 @@ const Styles = StyleSheet.create({
 
     shareSubtitle: {
         color: '#000',
-        fontSize: 15
+        fontSize: 17,
+        fontWeight: 'bold',
+        color: '#7d7d7d'
     },
 
     eyeCheck: {
         position: 'absolute',
         right: 20,
-        top: 15
+        top: 10
     }
 })
